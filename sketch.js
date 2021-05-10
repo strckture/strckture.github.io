@@ -49,10 +49,10 @@ function requestAccess() {
 function draw() {
   if (!permissionGranted) return;
 
-  // background(255);
+  background(255);
 
   // rotationX, rotationY
-  translate(width/2,height/2);
+  //translate(width/2,height/2);
   rotateX(radians(rotationX));
   rotateY(radians(rotationY));
   fill(0,0,255);
