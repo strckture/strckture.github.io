@@ -81,12 +81,13 @@ function draw() {
   // rotationX, rotationY
   const dx = constrain(rotationY, -3, 3);
   const dy = constrain(rotationX, -3, 3);
-  cx += dx*2;
-  cy += dy*2;
+  cx += dx;
+  cy += dy;
   cx = constrain(cx, 0, width);
   cy = constrain(cy, 0, height);
 
-  fill(random(255),100,100);
+  fill(random(255),80,80);
+  noStroke();
   //ellipse(width/2+rotationX, height/2+rotationY, 50, 50);
   ellipse(cx, cy, 20, 20);
 
