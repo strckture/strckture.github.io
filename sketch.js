@@ -1,11 +1,15 @@
+
+let font;
 let permissionGranted = false;
-let cx, cy;
+
+
+function preload() {
+  font = loadFont('assets/SpaceGrotesk-Regular.ttf');
+}
+
 
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
-
-  cx = width/2;
-  cy = height/2;
 
   // DeviceOrientationEvent, DeviceMotionEvent
   if (typeof(DeviceOrientationEvent) !== 'undefined' && typeof(DeviceOrientationEvent.requestPermission) === 'function') {
@@ -53,9 +57,18 @@ function draw() {
 
   // rotationX, rotationY
   //translate(width/2,height/2);
-  rotateX(radians(rotationX));
-  rotateY(radians(rotationY));
+  rotateX(radians(-rotationX));
+  rotateY(radians(-rotationY));
   fill(0,0,255);
   box(75);
+
+  push();
+  translate(0,-4,80);
+  fill(255,0,0);
+  textFont(font);
+  textAlign(CENTER,CENTER);
+  textSize(20);
+  text("Hallo!",0,0);
+  pop();
 
 }
