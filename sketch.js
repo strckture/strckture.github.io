@@ -1,9 +1,8 @@
-
 let permissionGranted = false;
 let cx, cy;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowHeight, WEBGL);
 
   cx = width/2;
   cy = height/2;
@@ -15,7 +14,7 @@ function setup() {
     DeviceOrientationEvent.requestPermission()
       .catch(() => {
         // show permission dialog only the first time
-        let button = createButton("click to allow access to sensors");
+        let button = createButton("allow access to motion sensors");
         button.style("font-size", "24px");
         button.center();
         button.mousePressed( requestAccess );
@@ -53,15 +52,10 @@ function draw() {
   // background(255);
 
   // rotationX, rotationY
-  const dx = constrain(rotationY, -3, 3);
-  const dy = constrain(rotationX, -3, 3);
-  cx += dx*2;
-  cy += dy*2;
-  cx = constrain(cx, 0, width);
-  cy = constrain(cy, 0, height);
-
-  //fill(random(255));
-  //ellipse(width/2+rotationX, height/2+rotationY, 50, 50);
-  ellipse(cx, cy, 50, 50);
+  translate(width/2,height/2);
+  rotateX(radians(rotationX));
+  rotateY(radians(rotationY));
+  fill(0,0,255);
+  box(75);
 
 }
