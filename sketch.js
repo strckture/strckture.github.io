@@ -57,13 +57,13 @@ function draw() {
 
   // rotationX, rotationY
   //translate(width/2,height/2);
-  rotateX(radians(-rotationX));
-  rotateY(radians(-rotationY));
+  rotateX(radians(rotationX));
+  rotateY(radians(rotationY));
   fill(0,0,255);
   box(75);
 
   push();
-  translate(0,-4,80);
+  translate(0,-4,76);
   fill(255,0,0);
   textFont(font);
   textAlign(CENTER,CENTER);
