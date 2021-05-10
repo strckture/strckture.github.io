@@ -1,11 +1,11 @@
 
-let font;
+//let font;
 let permissionGranted = false;
 
 
-function preload() {
-  font = loadFont('assets/SpaceGrotesk-Regular.ttf');
-}
+// function preload() {
+//   font = loadFont('assets/SpaceGrotesk-Regular.ttf');
+// }
 
 
 function setup() {
@@ -62,13 +62,13 @@ function draw() {
   fill(0,0,255);
   box(75);
 
-  push();
+  /*push();
   translate(0,-4,76);
   fill(255,0,0);
   textFont(font);
   textAlign(CENTER,CENTER);
   textSize(20);
   text("Hallo!",0,0);
-  pop();
+  pop();*/
 
 }
