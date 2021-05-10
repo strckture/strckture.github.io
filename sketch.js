@@ -10,10 +10,12 @@ let cx, cy;
 
 
 function setup() {
-  createCanvas(windowWidth, windowHeight, WEBGL);
+  createCanvas(windowWidth, windowHeight);
 
-  cx = 0;
-  cy = 0;
+  cx = width/2;
+  cy = height/2;
+
+  colorMode(HSB,255,100,100);
 
 
   // DeviceOrientationEvent, DeviceMotionEvent
@@ -84,8 +86,8 @@ function draw() {
   cx = constrain(cx, 0, width);
   cy = constrain(cy, 0, height);
 
-  fill(random(255),0,0);
+  fill(random(255),100,100);
   //ellipse(width/2+rotationX, height/2+rotationY, 50, 50);
-  ellipse(cx, cy, 50, 50);
+  ellipse(cx, cy, 20, 20);
 
 }
