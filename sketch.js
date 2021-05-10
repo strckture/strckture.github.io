@@ -1,6 +1,7 @@
 
 //let font;
 let permissionGranted = false;
+let cx, cy;
 
 
 // function preload() {
@@ -10,6 +11,10 @@ let permissionGranted = false;
 
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
+
+  cx = 0;
+  cy = 0;
+
 
   // DeviceOrientationEvent, DeviceMotionEvent
   if (typeof(DeviceOrientationEvent) !== 'undefined' && typeof(DeviceOrientationEvent.requestPermission) === 'function') {
@@ -53,14 +58,14 @@ function requestAccess() {
 function draw() {
   if (!permissionGranted) return;
 
-  background(255);
-
-  // rotationX, rotationY
-  //translate(width/2,height/2);
-  rotateX(radians(rotationX));
-  rotateY(radians(rotationY));
-  fill(0,0,255);
-  box(75);
+  // background(255);
+  //
+  // // rotationX, rotationY
+  // //translate(width/2,height/2);
+  // rotateX(radians(rotationX));
+  // rotateY(radians(rotationY));
+  // fill(0,0,255);
+  // box(75);
 
   /*push();
   translate(0,-4,76);
@@ -70,5 +75,17 @@ function draw() {
   textSize(20);
   text("Hallo!",0,0);
   pop();*/
+
+  // rotationX, rotationY
+  const dx = constrain(rotationY, -3, 3);
+  const dy = constrain(rotationX, -3, 3);
+  cx += dx*2;
+  cy += dy*2;
+  cx = constrain(cx, 0, width);
+  cy = constrain(cy, 0, height);
+
+  fill(random(255),0,0);
+  //ellipse(width/2+rotationX, height/2+rotationY, 50, 50);
+  ellipse(cx, cy, 50, 50);
 
 }
