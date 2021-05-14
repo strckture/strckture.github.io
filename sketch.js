@@ -139,3 +139,8 @@ class Ball{
   }
 
 }
+
+
+function touchStarted() {
+  background(255,0,100);
+}
