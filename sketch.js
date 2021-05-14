@@ -17,9 +17,9 @@ function setup() {
   cx = width/2;
   cy = height/2;
 
-
+  textFont(font);
   textAlign(CENTER);
-  text("Tilt your Phone!", width/2, height/2);
+  text("Tilt your Phone!", width/2, height/3);
   colorMode(HSB,255,100,100);
 
 
@@ -140,6 +140,6 @@ class Ball{
 
 }
 
-function touchStarted() {
+/*function touchStarted() {
   background(255,0,100);
-}
+}*/
