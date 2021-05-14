@@ -140,13 +140,6 @@ class Ball{
 
 }
 
-
 function touchStarted() {
-  if (value === 0) {
-    cx=width/2;
-    cy=height/2;
-  } else {
-    cx += dx;
-    cy += dy;
-  }
+  background(255,0,100);
 }
