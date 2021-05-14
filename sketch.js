@@ -9,6 +9,9 @@ function preload() {
   font = loadFont('assets/SpaceGrotesk-Regular.ttf');
 }
 
+function windowResized(){
+	resizeCanvas(windowWidth, windowHeight);
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -134,7 +137,7 @@ class Ball{
 
   draw(){
     strokeWeight(0.2);
-    fill(frameCount % 255, 100,100);
+    fill(frameCount % 255, 80,100);
     ellipse(this.location.x, this.location.y, this.radius, this.radius);
   }
 
