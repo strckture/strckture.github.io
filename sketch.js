@@ -1,3 +1,5 @@
+var canvas
+
 var balls = [];
 
 var cvalue = 0;
@@ -17,7 +19,9 @@ function windowResized(){
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  canvas = createCanvas(windowWidth, windowHeight);
+  canvas.position(0,0);
+  canvas.style('z-index','-1');
 
   background(255);
 
@@ -30,7 +34,7 @@ function setup() {
   textAlign(RIGHT);
   text("created by Pascal Struck", width-20, height-20);
 
-  //colorMode(HSB,255,100,100);
+  colorMode(HSB,255,100,100);
 
   // DeviceOrientationEvent, DeviceMotionEvent
   if (typeof(DeviceOrientationEvent) !== 'undefined' && typeof(DeviceOrientationEvent.requestPermission) === 'function') {
@@ -146,8 +150,8 @@ class Ball{
 
   draw(){
     strokeWeight(0.2);
-    //fill(cvalue, 50,100);
-    fill(cvalue, 200, 255-cvalue);
+    fill(cvalue, 60,100);
+    //fill(cvalue, 200, 255-cvalue);
     ellipse(this.location.x, this.location.y, this.radius, this.radius);
   }
 }
