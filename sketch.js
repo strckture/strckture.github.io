@@ -1,5 +1,8 @@
 var balls = [];
 
+var cvalue = 0;
+var fade = 1;
+
 let font;
 let permissionGranted = false;
 let cx, cy;
@@ -16,6 +19,7 @@ function windowResized(){
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
+  background(255);
 
   cx = width/2;
   cy = height/2;
@@ -23,8 +27,10 @@ function setup() {
   textFont(font);
   textAlign(CENTER);
   text("Tilt your Phone!", width/2, height/3);
-  colorMode(HSB,255,100,100);
+  textAlign(RIGHT);
+  text("created by Pascal Struck", width-20, height-20);
 
+  //colorMode(HSB,255,100,100);
 
   // DeviceOrientationEvent, DeviceMotionEvent
   if (typeof(DeviceOrientationEvent) !== 'undefined' && typeof(DeviceOrientationEvent.requestPermission) === 'function') {
@@ -45,8 +51,6 @@ function setup() {
       })
   } else {
     // non ios device
-    //textSize(48);
-    // text("non ios 13 device", 100, 100);
     permissionGranted = true;
   }
 }
@@ -69,8 +73,6 @@ function draw() {
   if (!permissionGranted) return;
 
   //background(255);
-
-
   /*eyes bottom right
   ellipseMode(CENTER);
   const ex = constrain(rotationY, -10, 10);
@@ -81,6 +83,13 @@ function draw() {
   fill(0);
   ellipse(width-160+ex,height-80+ey,25,25);
   ellipse(width-80+ex,height-80+ey,25,25);*/
+
+  if (cvalue > 255 || cvalue < 0) {
+    fade = fade* -1;
+  }
+  cvalue = cvalue + fade;
+
+  //print(cvalue);
 
   const dx = constrain(rotationY, -3, 3);
   const dy = constrain(rotationX, -3, 3);
@@ -103,6 +112,7 @@ function draw() {
 
   for (var i = 0; i < 5; i++){
     balls.push(new Ball(cx, cy, color(0,0,0)));
+    //balls.push(new Ball(mouseX, mouseY, color(0,0,0)));
   }
 
 }
@@ -125,24 +135,19 @@ class Ball{
     this.radius -= random(0.25, 0.6);
 
     this.xOff = this.xOff + random(-0.5, 0.5);
-	this.nX = noise(this.location.x) * this.xOff;
+    this.nX = noise(this.location.x) * this.xOff;
 
-	this.yOff = this.yOff + random(-0.5, 0.5);
-	this.nY = noise(this.location.y) * this.yOff;
+    this.yOff = this.yOff + random(-0.5, 0.5);
+    this.nY = noise(this.location.y) * this.yOff;
 
-	this.location.x += this.nX;
-	this.location.y += this.nY;
+    this.location.x += this.nX;
+    this.location.y += this.nY;
 }
-
 
   draw(){
     strokeWeight(0.2);
-    fill(frameCount % 255, 80,100);
+    //fill(cvalue, 50,100);
+    fill(cvalue, 200, 255-cvalue);
     ellipse(this.location.x, this.location.y, this.radius, this.radius);
   }
-
 }
-
-/*function touchStarted() {
-  background(255,0,100);
-}*/
