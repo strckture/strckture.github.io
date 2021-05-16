@@ -1,5 +1,3 @@
-var canvas
-
 var balls = [];
 
 var cvalue = 0;
@@ -19,8 +17,7 @@ function windowResized(){
 }
 
 function setup() {
-  canvas = createCanvas(windowWidth, windowHeight);
-  canvas.position(0,0);
+  createCanvas(windowWidth, windowHeight);
 
   background(255);
 
