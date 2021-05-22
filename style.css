@@ -5,9 +5,9 @@ body {
 
 
 div.gallery {
-	margin: 20px;
+	margin: 3vw;
 	float: left;
-	width: 20vw;
+	width: 30vw;
 }
 
 div.gallery img {
