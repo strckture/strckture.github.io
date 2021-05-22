@@ -1,20 +1,28 @@
 
 var x = 0, y = 0;
 var stepSize = 5.0;
-var letters = "hello world! ";
+var letters = "I like to sing, dance, pretend and have FUN!";
 var fontSizeMin = 10;
 var counter = 0;
 
+let font;
+
+
+function preload() {
+  font = loadFont('assets/ChicagoFLF.ttf');
+}
 
 function setup() {
-  createCanvas(windowWidth, screen.availHeight);
-  background(255);
+  createCanvas(windowWidth-8, windowHeight-8);
+  //background(102,101,161);
+  background(72,162,165);
   smooth();
-  //cursor(CROSS);
+
   mouseX = width / 2;
 	mouseY = height / 2;
   x = mouseX;
   y = mouseY;
+
   textAlign(LEFT);
   stroke(0);
   colorMode(HSB, 255);
@@ -23,7 +31,7 @@ function setup() {
 function draw() {
   if (mouseOver) {
     var d = dist(x,y, mouseX,mouseY);
-    //textFont('Georgia');
+    textFont(font);
     textSize(fontSizeMin+d/2)
     var newLetter = letters.charAt(counter);;
     stepSize = textWidth(newLetter);
@@ -34,8 +42,9 @@ function draw() {
       push();
       translate(x, y);
       rotate(angle);
-			fill(255, 100, 200);
-      noStroke();
+			//fill(random(255), 100, 200);
+      fill(200);
+      //noStroke();
       text(newLetter, 0, 0);
       pop();
 
