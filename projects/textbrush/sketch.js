@@ -13,7 +13,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth-8, windowHeight-8);
+  createCanvas(windowWidth-4, windowHeight-4);
   //background(102,101,161);
   background(72,162,165);
   smooth();
