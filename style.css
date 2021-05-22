@@ -1,0 +1,16 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+
+div.gallery {
+	margin: 20px;
+	float: left;
+	width: 20vw;
+}
+
+div.gallery img {
+	width: 100%;
+	height: auto;
+}
