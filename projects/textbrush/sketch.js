@@ -1,21 +1,25 @@
 
 var x = 0, y = 0;
 var stepSize = 5.0;
-var letters = "I like to sing, dance, pretend and have FUN!  ";
+var letters = "I like to sing, dance, pretend and Kazoo! ";
 var fontSizeMin = 10;
 var counter = 0;
 
 let font;
+let img;
 
 
 function preload() {
   font = loadFont('assets/ChicagoFLF.ttf');
+  img = loadImage('assets/bg.jpg');
 }
 
 function setup() {
   createCanvas(windowWidth-4, windowHeight-4);
   //background(102,101,161);
-  background(72,162,165);
+  //background(72,162,165);
+  img.resize(width,height);
+  image(img,0,0);
   smooth();
 
   mouseX = width / 2;
@@ -43,8 +47,9 @@ function draw() {
       translate(x, y);
       rotate(angle);
 			//fill(random(255), 100, 200);
-      fill(284 ,frameCount % 100, 100);
-      //noStroke();
+      fill(frameCount % 255 ,37, 89);
+      //fill(255);
+      noStroke();
       text(newLetter, 0, 0);
       pop();
 
