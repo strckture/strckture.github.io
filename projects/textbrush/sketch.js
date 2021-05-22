@@ -1,7 +1,7 @@
 
 var x = 0, y = 0;
 var stepSize = 5.0;
-var letters = "I like to sing, dance, pretend and have FUN!";
+var letters = "I like to sing, dance, pretend and have FUN!  ";
 var fontSizeMin = 10;
 var counter = 0;
 
@@ -25,7 +25,7 @@ function setup() {
 
   textAlign(LEFT);
   stroke(0);
-  colorMode(HSB, 255);
+  colorMode(HSB, 360,100,100);
 }
 
 function draw() {
@@ -43,7 +43,7 @@ function draw() {
       translate(x, y);
       rotate(angle);
 			//fill(random(255), 100, 200);
-      fill(200);
+      fill(284 ,frameCount % 100, 100);
       //noStroke();
       text(newLetter, 0, 0);
       pop();
