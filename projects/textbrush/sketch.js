@@ -6,21 +6,31 @@ var fontSizeMin = 10;
 var counter = 0;
 
 let font;
-let img;
+//let img;
 
 
 function preload() {
   font = loadFont('assets/ChicagoFLF.ttf');
-  img = loadImage('assets/bg.jpg');
+  //img = loadImage('assets/bg.jpg');
 }
 
 function setup() {
   createCanvas(windowWidth-4, windowHeight-4);
   //background(102,101,161);
   //background(72,162,165);
-  img.resize(width,height);
-  image(img,0,0);
+  background(245);
+  /*img.resize(width,height);
+  image(img,0,0);*/
   smooth();
+
+  stroke(20);
+  for (var i = 0; i < height/30; i++) {
+    line(0,0+i*30,width,0+i*30)
+  }
+
+  for (var i = 0; i < width/30; i++) {
+    line(0+i*30,0,0+i*30,height);
+  }
 
   mouseX = width / 2;
 	mouseY = height / 2;
@@ -30,6 +40,11 @@ function setup() {
   textAlign(LEFT);
   stroke(0);
   colorMode(HSB, 360,100,100);
+
+  drawingContext.shadowOffsetX = 5;
+  drawingContext.shadowOffsetY = -5;
+  drawingContext.shadowBlur = 1;
+  drawingContext.shadowColor = 'black';
 }
 
 function draw() {
@@ -46,9 +61,10 @@ function draw() {
       push();
       translate(x, y);
       rotate(angle);
-			//fill(random(255), 100, 200);
-      fill(frameCount % 255 ,37, 89);
-      //fill(255);
+			fill(random(360), 38, 82);
+      //fill(frameCount % 360 ,38, 82);
+      //fill(0);
+      //strokeWeight(2);
       noStroke();
       text(newLetter, 0, 0);
       pop();
