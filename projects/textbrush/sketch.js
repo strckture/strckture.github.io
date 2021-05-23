@@ -62,10 +62,7 @@ function draw() {
       translate(x, y);
       rotate(angle);
 			fill(random(360), 38, 82);
-      //fill(frameCount % 360 ,38, 82);
-      //fill(0);
-      //strokeWeight(2);
-      noStroke();
+      //noStroke();
       text(newLetter, 0, 0);
       pop();
 
