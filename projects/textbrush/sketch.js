@@ -23,7 +23,7 @@ function setup() {
   image(img,0,0);*/
   smooth();
 
-  stroke(20);
+  stroke(150);
   for (var i = 0; i < height/30; i++) {
     line(0,0+i*30,width,0+i*30)
   }
