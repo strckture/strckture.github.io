@@ -3,11 +3,18 @@ body {
 	padding: 0;
 }
 
+.gallerycontainer {
+	display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 div.gallery {
-	margin: 1vw;
+	margin: 2vw;
 	float: left;
-	width: 30vw;
+	width: 28vw;
+	height: 28vw;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 div.gallery img {
