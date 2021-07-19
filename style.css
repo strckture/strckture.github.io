@@ -16,7 +16,7 @@ body {
 	background-color: #FFF;
 	position: fixed;
 	top: 0;
-	border-bottom:solid black 3px;
+	border-bottom:solid black 2px;
 }
 
 .logo {
@@ -50,15 +50,15 @@ a {
 	justify-content: center;
   /* max-width:100%; */
   grid-template-columns: repeat(2, auto);
-  border-top: 3px solid black;
+  border-top: 2px solid black;
 	overflow: hidden;
 }
 
 .gallerycontainer > div.gallery {
 	width: 50vw;
 	height: 50vw;
- 	border-bottom: 3px solid black;
- 	border-right: 3px solid black;
+ 	border-bottom: 2px solid black;
+ 	border-right: 2px solid black;
 }
 
 div.gallery img {
