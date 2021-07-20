@@ -1,13 +1,12 @@
 // Original code by The Wizard Bear
 
 const string = "I AM BACK"; //words to be displayed
-const size = 60; //font size
-//const fontFile = "assets\KyivTypeTitling-Bold3.ttf";
-const showText = true; //whether or not to have an overlay of the original text (in the background color)
-const textAlpha = 0; //the alpha of the text if displayed (low value will make it slowly fade in)
+var size = 60; //font size
+
+const showText = false; //whether or not to have an overlay of the original text (in the background color)
+const textAlpha = 30; //the alpha of the text if displayed (low value will make it slowly fade in)
 //const backgroundColor = 1; //kinda self-explanatory
-const strokeAlpha = 80; //the alpha of the lines (lower numbers are more transparent)
-const strokeColor = 0; //the line color
+var strokeAlpha = 80; //the alpha of the lines (lower numbers are more transparent)
 
 
 const fontSampleFactor = 0.5; //How many points there are: the higher the number, the closer together they are (more detail)
@@ -19,7 +18,7 @@ const noiseFalloff = .5; //The falloff for the noise layers
 const zOffsetChange = 0; //How much the noise field changes in the z direction each frame
 const individualZOffset = 0; //how far away the points/lines are from each other in the z noise axies (the bigger the number, the more chaotic)
 
-const lineSpeed = 1.0; //the maximum amount each point can move each frame
+const lineSpeed = 1.5; //the maximum amount each point can move each frame
 
 const newPointsCount = 9; //the number of new points added when the mouse is dragged
 
@@ -73,14 +72,7 @@ function draw() {
 	}
 }
 
-/*function keyPressed() {
-	if (key == 's') {
-		save();
-	}
-}*/
-
 function mouseDragged() {
-	//stroke(0,0,255);
 	for (let i = 0; i < newPointsCount; i++) {
 		let angle = random(TAU);
 		let magnitude = randomGaussian() * ((newPointsCount-1)**0.5*3);
