@@ -38,7 +38,7 @@ function setup() {
 	textFont(font);
 	textSize(width/7);
 	fill(255, textAlpha);
-	stroke(255,0,0, 80);
+	stroke(255,0,0, 30);
 	noiseDetail(noiseOctaves, noiseFalloff);
 
 	startingPoints = font.textToPoints(string, width / 2 - textWidth(string) / 2, height / 2, width/7, {"sampleFactor": fontSampleFactor});
@@ -54,7 +54,7 @@ function draw() {
 	if(showText){
 		noStroke();
 		text(string, width / 2 - textWidth(string) / 2, height);
-		stroke(255,0,0, 80);
+		stroke(255,0,0, 30);
 	}
 	for (let pt = 0; pt < points.length; pt++) {
 		let p = points[pt];
