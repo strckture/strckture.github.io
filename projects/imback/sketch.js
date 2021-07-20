@@ -37,7 +37,7 @@ function setup() {
 	var myColors = [color('#F90D0D'), color('#120DF9'), color('#3E3C87')];
 
 	for (var i = 0; i < myColors.length; i++) {
-		myColors[i].setAlpha(50);
+		myColors[i].setAlpha(20);
 	}
 
 
