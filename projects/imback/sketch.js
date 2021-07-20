@@ -1,12 +1,9 @@
 // Original code by The Wizard Bear
 
 const string = "I AM BACK"; //words to be displayed
-var size = 60; //font size
 
 const showText = false; //whether or not to have an overlay of the original text (in the background color)
 const textAlpha = 30; //the alpha of the text if displayed (low value will make it slowly fade in)
-//const backgroundColor = 1; //kinda self-explanatory
-var strokeAlpha = 80; //the alpha of the lines (lower numbers are more transparent)
 
 
 const fontSampleFactor = 0.5; //How many points there are: the higher the number, the closer together they are (more detail)
@@ -20,7 +17,7 @@ const individualZOffset = 0; //how far away the points/lines are from each other
 
 const lineSpeed = 1.5; //the maximum amount each point can move each frame
 
-const newPointsCount = 9; //the number of new points added when the mouse is dragged
+const newPointsCount = 20; //the number of new points added when the mouse is dragged
 
 
 var font;
@@ -41,7 +38,7 @@ function setup() {
 	textFont(font);
 	textSize(width/7);
 	fill(255, textAlpha);
-	stroke(255,0,0, strokeAlpha);
+	stroke(255,0,0, 80);
 	noiseDetail(noiseOctaves, noiseFalloff);
 
 	startingPoints = font.textToPoints(string, width / 2 - textWidth(string) / 2, height / 2, width/7, {"sampleFactor": fontSampleFactor});
@@ -57,7 +54,7 @@ function draw() {
 	if(showText){
 		noStroke();
 		text(string, width / 2 - textWidth(string) / 2, height);
-		stroke(255,0,0, strokeAlpha);
+		stroke(255,0,0, 80);
 	}
 	for (let pt = 0; pt < points.length; pt++) {
 		let p = points[pt];
