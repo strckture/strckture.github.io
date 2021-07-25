@@ -161,3 +161,15 @@ div.gallery img {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.link {
+  background-color: black;
+}
+
+.linktext {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: white;
+}
