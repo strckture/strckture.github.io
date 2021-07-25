@@ -20,9 +20,8 @@ body {
 }
 
 .logo {
-	background-color: black;
-	width: 32px;
 	height: 32px;
+	width: auto;
 	margin-left: 3vw;
   position: absolute;
   top: 50%;
