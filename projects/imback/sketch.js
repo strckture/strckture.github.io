@@ -34,7 +34,7 @@ function setup() {
 	createCanvas(windowWidth, windowHeight);
 	background(244,236,221);
 
-	var myColors = [color('#F90D0D'), color('#120DF9'), color('#3E3C87')];
+	var myColors = [color('#F90D0D'), color('#120DF9'), color('#3E3C87'),color('#0D6721')];
 
 	for (var i = 0; i < myColors.length; i++) {
 		myColors[i].setAlpha(20);
