@@ -5,16 +5,19 @@ let img;
 
 let vScale =10;
 
+var easycam;
+
 
 function preload()
 {
-	img = loadImage('assets/vangogh.jpg');
+	img = loadImage('assets/monalisa.jpg');
 }
 
 
 function setup() {
 	createCanvas(windowWidth, windowHeight,WEBGL);
-	createEasyCam();
+	//createEasyCam();
+	easycam = new Dw.EasyCam(this._renderer, {distance:1200, center:[0,0,0]});
 
 	rectMode(CENTER);
 	imageMode(CENTER);
@@ -34,7 +37,7 @@ function draw() {
 	//rotateZ(PI/2);
 	//rotateY(frameCount*0.005);
 
-	translate(-width/2,-height/4,-100);
+	translate(-width/2,-height/4,0);
 
 	img.loadPixels();
 	//loadPixels();
@@ -84,7 +87,7 @@ function draw() {
 			// pixels[index+3] = 255;
 
 			push();
-			translate(x*vScale,y*vScale,bright*1.5);
+			translate(x*vScale,y*vScale,bright*2);
 			noStroke();
 			fill(r,g,b);
 			//ellipse(0,0,vScale,vScale);
