@@ -27,9 +27,9 @@ function setup() {
 }
 
 function draw() {
-	background(200);
+	background(0);
 
-	orbitControl();
+	//orbitControl();
 	//rotateZ(PI/2);
 	//rotateY(frameCount*0.005);
 
@@ -83,12 +83,12 @@ function draw() {
 			// pixels[index+3] = 255;
 
 			push();
-			translate(x*vScale,y*vScale,bright);
+			translate(x*vScale,y*vScale,bright*1.5);
 			noStroke();
 			fill(r,g,b);
 			//ellipse(0,0,vScale,vScale);
-			//rect(0,0,vScale,vScale);
-			box(vScale, vScale);
+			rect(0,0,vScale,vScale);
+			//box(vScale, vScale);
 			pop();
 		}
 	}
