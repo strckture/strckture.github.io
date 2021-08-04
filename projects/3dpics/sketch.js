@@ -14,6 +14,7 @@ function preload()
 
 function setup() {
 	createCanvas(windowWidth, windowHeight,WEBGL);
+	createEasyCam();
 
 	rectMode(CENTER);
 	imageMode(CENTER);
@@ -33,7 +34,7 @@ function draw() {
 	//rotateZ(PI/2);
 	//rotateY(frameCount*0.005);
 
-	translate(-width/2,-height/4,-500);
+	translate(-width/2,-height/4,-100);
 
 	img.loadPixels();
 	//loadPixels();
