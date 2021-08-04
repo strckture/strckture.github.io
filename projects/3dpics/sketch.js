@@ -29,7 +29,7 @@ function setup() {
 function draw() {
 	background(200);
 
-	//orbitControl();
+	orbitControl();
 	//rotateZ(PI/2);
 	//rotateY(frameCount*0.005);
 
