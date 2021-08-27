@@ -1,10 +1,13 @@
 let svg;
-let cur;
+let cur = [];
 
 function preload() {
    // gSVGImg = loadImage('Akun.svg');
    svg = loadImage('assets/myhead.svg');
-   cur = loadImage('assets/mouse.svg');
+   cur[0] = loadImage('assets/mouse.svg');
+   cur[1] = loadImage('assets/mouse1.svg');
+   cur[2] = loadImage('assets/mouse2.svg');
+
  }
 
 function setup() {
@@ -16,7 +19,8 @@ function setup() {
 }
 
 function draw() {
-  background(200,200,255);
+  //background(200,250,255);
+  background(240,255);
 
   // image(cur,mouseX,mouseY);
 
@@ -41,6 +45,8 @@ function draw() {
   //image(svg, width/2 , height/2, 200, 215);
   image(svg, width/2 , height/2, 220, 237);
 
-  image(cur,mouseX,mouseY,30,30);
+  let test = int(random(0,3));
+  //print(test)
 
+  image(cur[test],mouseX,mouseY,30,30);
 }
