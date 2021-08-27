@@ -21,10 +21,13 @@ function draw() {
   translate(width/2,height/2);
   stroke(20,35,58);
   fill(0,40);
-  ellipse(-61+moveX,0+moveY,20,20);
-  ellipse(60+moveX,0+moveY,20,20);
+  // ellipse(-61+moveX,0+moveY,20,20);
+  // ellipse(60+moveX,0+moveY,20,20);
+
+  ellipse(-34,0,10,10);
+  ellipse(34,0,10,10);
   pop();
 
-  image(svg, width/2 , height/2);
+  image(svg, width/2 , height/2, 200, 215);
 
 }
