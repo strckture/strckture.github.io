@@ -1,12 +1,15 @@
 let svg;
 let cur = [];
 
+let bg;
+
 function preload() {
    // gSVGImg = loadImage('Akun.svg');
    svg = loadImage('assets/myhead.svg');
    cur[0] = loadImage('assets/mouse.svg');
    cur[1] = loadImage('assets/mouse1.svg');
    cur[2] = loadImage('assets/mouse2.svg');
+   bg = loadImage('assets/noise.png');
 
  }
 
@@ -14,21 +17,25 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   background(255);
   imageMode(CENTER);
+  image(bg,0,0,width,height);
 
   noCursor();
 }
 
 function draw() {
-  //background(200,250,255);
-  background(240,255);
+  background(255);
+
+  background(mouseX,200,mouseY);
+  //background(mouseX,200,mouseY);
+  //background("#FFD3D3");
 
   // image(cur,mouseX,mouseY);
-
+  image(bg,width/2 ,height/2 ,width,height);
   //fill(255,0,0);
   //ellipse(mouseX,mouseY,30,30);
 
   let moveX = map(mouseX,0,width,-10,10);
-  let moveY = map(mouseY,0,height,-3,3);
+  let moveY = map(mouseY,0,height,-4,4);
 
   push();
   translate(width/2,height/2);
