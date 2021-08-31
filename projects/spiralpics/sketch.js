@@ -17,22 +17,16 @@ function setup() {
 	cy = height/2;
   init();
 	background(0,255,0);
-	// radius = radiusSpan/2;
-  // radian = 0;
-	// x = cx + cos(radian)*radius;
-	// y = cy + sin(radian)*radius;
-//translate(width/2, height/2);
 
-	//imageMode(CENTER);
-	//img.position(500,500);
-	img.resize(s/2,s/2);
-	//img.resize(width/2,height/2);
+	img.resize(500,500);
+	//img.resize(width,height);
 }
 
 
 function init() {
 	//background(0,255,0);
   radius = radiusSpan/2;
+	//radius = 100;
 	radian = 0;
 	x = cx + cos(radian)*radius;
 	y = cy + sin(radian)*radius;
@@ -52,7 +46,8 @@ function draw() {
     x = cx + cos(radian)*radius;
     y = cy + sin(radian)*radius;
 
-    let col = img.get(x,y);
+		let col = img.get(x,y);
+
     col = map(brightness(col),0,255,1,0);
     col = pow(col,3);
   	let sw = map(col,1,0,radiusSpan*0.7,0.01);
