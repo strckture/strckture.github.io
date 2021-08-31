@@ -12,7 +12,7 @@ function setup() {
   // }
   noStroke()
   background(255);
-  //colorMode(HSB,100,100,100);
+  colorMode(HSB,100,100,100);
 }
 
 function windowResized(){
@@ -24,12 +24,12 @@ function draw() {
   translate(width / 2, height / 2)
   for (let i = num; i > 0; --i) {
     push()
-    //fill(0.5*i,200,200)
-    fill(255,245,100+i*3)
+    fill(0.5*i,200,200)
+    //fill(255,245,100+i*3)
     drawingContext.shadowOffsetY = 5;
     drawingContext.shadowBlur = 10;
-    //drawingContext.shadowColor = color(0.5*i,100,50)
-    drawingContext.shadowColor = color(190,170,60+i*3)
+    drawingContext.shadowColor = color(0.5*i,100,50)
+    //drawingContext.shadowColor = color(190,170,60+i*3)
 
     rotate(radians(sin(frameCount / 100) * i) * 20)
     //const s = width / num * i
