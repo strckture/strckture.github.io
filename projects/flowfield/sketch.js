@@ -11,11 +11,12 @@ var myScale = 3;
 var nAgents = 2000;
 let agent = [];
 // set spinning direction (plus or minus)
-var direction = -1;
+var direction = 1;
 var par = 0;
 
-let mic;
-
+function windowResized() {
+  createCanvas(windowWidth, windowHeight);
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -30,20 +31,12 @@ function setup() {
     agent.push(new Agent());
   }
 
-  mic = new p5.AudioIn();
-  // start the Audio Input.
-  // By default, it does not .connect() (to the computer speakers)
-  mic.start();
 }
 
 
 function draw() {
 
-  //background(248,100,12,0.05);
   background(248,100,6,0.05);
-
-  let vol = mic.getLevel();
-  direction = vol*20;
 
   for(let i=0;i < agent.length;i++)
   {
@@ -101,22 +94,6 @@ class Agent {
     line(this.pOld.x,this.pOld.y,this.p.x,this.p.y);
 
     this.pOld.set(this.p);
-    //this.isOutside = false;
-
-    /*var v = createVector(this.p.x, this.p.y);
-    this.history.push(v);
-    print(this.history);
-
-    if (this.history.length > 50){
-      this.history.splice(0,1);
-    }
-
-    for (var i = 0; i< this.history.length; i++){
-      var pos = this.history[i];
-      line(this.p.x,this.p.y,pos.x,pos.y);
-      //vector(this.p.x,this.p.y,pos.x,pos.y);
-    }
-    */
   }
 }
 
