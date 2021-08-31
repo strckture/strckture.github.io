@@ -12,7 +12,11 @@ function setup() {
   // }
   noStroke()
   background(255);
-  colorMode(HSB,100,100,100);
+  //colorMode(HSB,100,100,100);
+}
+
+function windowResized(){
+	resizeCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
@@ -20,20 +24,21 @@ function draw() {
   translate(width / 2, height / 2)
   for (let i = num; i > 0; --i) {
     push()
-    fill(1*i,100,100)
-    drawingContext.shadowOffsetY = 10;
+    //fill(0.5*i,200,200)
+    fill(255,245,100+i*3)
+    drawingContext.shadowOffsetY = 5;
     drawingContext.shadowBlur = 10;
-    drawingContext.shadowColor = color(1*i,100,60)
+    //drawingContext.shadowColor = color(0.5*i,100,50)
+    drawingContext.shadowColor = color(190,170,60+i*3)
 
-    //drawingContext.shadowColor = "#00000066"
     rotate(radians(sin(frameCount / 100) * i) * 20)
     //const s = width / num * i
-    const s = width/18*i
-    rect(0, 0, s, s)
+    const s = width/30*i
+    ellipse(0, 0, s, s*1.5)
+    //rect(0, 0, s, s)
     pop()
   }
 }
-
 
 // class Shape {
 //   constructor() {
