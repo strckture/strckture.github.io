@@ -5,6 +5,7 @@ let shapes = [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  //createCanvas(1080, 1080);
   rectMode(CENTER)
 
   // for (let i = 0; i < num; i++) {
@@ -26,7 +27,7 @@ function draw() {
     push()
     fill(0.5*i,200,200)
     //fill(255,245,100+i*3)
-    drawingContext.shadowOffsetY = 5;
+    drawingContext.shadowOffsetY = 10;
     drawingContext.shadowBlur = 10;
     drawingContext.shadowColor = color(0.5*i,100,50)
     //drawingContext.shadowColor = color(190,170,60+i*3)
