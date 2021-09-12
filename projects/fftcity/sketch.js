@@ -32,7 +32,7 @@ function setup() {
   rows = min(windowWidth,windowHeight)/80;
 
 
-  colorMode(HSB,360,100,100);
+  colorMode(HSB,360,100,100,100);
 }
 
 
@@ -117,8 +117,8 @@ function drawWindows(b,h) {
     var px = b/5*i;
     var py = winHeight+10;
     rectMode(CENTER)
-    fill(70,10,100,random(30));
-    //stroke(230,5,45,10);
+    fill(70,10,100);
+    //stroke(230,5,45,0.5);
     noStroke();
     rect(px+b/4,py-h/2+10,winWidth,winHeight);
   }
