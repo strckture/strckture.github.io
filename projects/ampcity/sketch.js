@@ -76,7 +76,7 @@ function draw() {
 		rect(0,0,width,40);
 		fill(0,0,0);
     textSize(16);
-		text("Tap to play! Make sure your phone is not in silent mode.",0,5);
+		text("Tap to play! Deactivate silent mode.",0,5);
 	}
 	pop();
 
