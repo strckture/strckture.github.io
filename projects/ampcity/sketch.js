@@ -68,7 +68,7 @@ function draw() {
 	push();
 	if (des) {
 		rectMode(CENTER);
-		translate(0,-height/3,1000);
+		translate(0,-height/3,5000);
 		noStroke();
 		fill(0,0,100);
 		rect(0,0,width,40);
