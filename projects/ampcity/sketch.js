@@ -73,7 +73,8 @@ function draw() {
 		fill(0,0,100);
 		rect(0,0,width,40);
 		fill(0,0,0);
-		text("Tap to play! Make sure your phone is not muted.",0,3);
+    textSize(16);
+		text("Tap to play! Make sure your phone is not muted.",0,5);
 	}
 	pop();
 
@@ -81,7 +82,7 @@ function draw() {
 
 function separateGrid(x, y, z, d, minD) {
 	//gridsize
-	let sep = int(random(4,6))
+	let sep = int(random(3,5))
 	let w = d / sep;
 
 	for (let j = 0; j < sep; j++) {

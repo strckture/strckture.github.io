@@ -80,7 +80,8 @@ function draw() {
     fill(0,0,100);
     rect(0,0,width,40);
     fill(0,0,0);
-    text("Tap to play! Make sure your phone is not muted.",0,3);
+    textSize(16);
+    text("Tap to play! Make sure your phone is not muted.",0,5);
   }
   pop();
 
