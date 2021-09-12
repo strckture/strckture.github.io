@@ -44,6 +44,8 @@ function draw() {
 	//let spectrum = fft.analyze();
 	level = amp.getLevel();
 
+  level = map(level,0,1.0,0,100);
+
 
 	background(200,10,10);
 	translate(0, height / 3, 0);
@@ -74,7 +76,7 @@ function draw() {
 		rect(0,0,width,40);
 		fill(0,0,0);
     textSize(16);
-		text("Tap to play! Make sure your phone is not muted.",0,5);
+		text("Tap to play! Make sure your phone is not in silent mode.",0,5);
 	}
 	pop();
 
@@ -135,7 +137,7 @@ function drawBuilding(w, h, d) {
 				let nx = w_offset + i * (w_margin + nw);
 				let ny = h_offset + j * (h_margin + nh);
 
-				fill(255,10+level*250);
+				fill(255,10+level);
 				rect(nx+nw/4, ny, nw*0.5, nh*0.8);
 			}
 		}
@@ -150,7 +152,7 @@ function drawBuilding(w, h, d) {
 				let nx = w_offset + i * (w_margin + nw);
 				let ny = h_offset + j * (h_margin + nh);
 
-				fill(255,10+level*300);
+				fill(255,10+level);
 				rect(nx+nw/4, ny, nw*0.5, nh*0.8);
 			}
 		}
