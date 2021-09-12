@@ -6,11 +6,15 @@ let rows;
 let seed;
 let resp;
 
+var des = true;
+let font;
+
 const palette = ["#001219", "#005f73", "#0a9396", "#94d2bd", "#e9d8a6", "#ee9b00", "#ca6702", "#bb3e03", "#ae2012", "#9b2226"];
 
 
 function preload(){
   sound = loadSound('assets/test.mp3');
+  font = loadFont('assets/SpaceGrotesk-Regular.ttf');
 }
 
 
@@ -24,6 +28,8 @@ function setup() {
 
   background(0);
 
+  textFont(font);
+  textAlign(CENTER);
 
   ortho(-width / 2, width / 2, -height / 2, height / 2, -5000, 5000);
 
@@ -42,7 +48,7 @@ function draw() {
 
   let spectrum = fft.analyze();
 
-
+  push();
   ambientLight(0, 0, 80);
 	directionalLight(color(30, 100, 80), 1, 0, -1);
 	directionalLight(color(60, 100, 10), -1, 0, -1);
@@ -63,7 +69,20 @@ function draw() {
 
       drawBuilding(x,h/2,z,int(random(20,50)),h);
     }
- }
+  }
+  pop();
+
+  push();
+  if (des) {
+    rectMode(CENTER);
+    translate(0,0,400);
+    noStroke();
+    fill(0,0,100);
+    rect(0,0,width,40);
+    fill(0,0,0);
+    text("Tap to play! Make sure your phone is not muted.",0,3);
+  }
+  pop();
 
 }
 
@@ -132,4 +151,12 @@ function togglePlay() {
   } else {
     sound.loop();
   }
+}
+
+function mousePressed() {
+  if (des) {
+   des = false;
+ } else {
+   on = true;
+ }
 }
