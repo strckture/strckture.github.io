@@ -1,6 +1,6 @@
 let radiusSpan = 8,
 		arcLengthStep = 1,
-		rotationSpeed = Math.PI/2, //13
+		rotationSpeed = Math.PI/13, //13
 		radius,radian,cx,cy,x,y;
 
 let img;
