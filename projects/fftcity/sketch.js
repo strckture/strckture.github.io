@@ -18,7 +18,6 @@ function preload(){
 }
 
 
-
 function setup() {
   let cnv = createCanvas(windowWidth,windowHeight,WEBGL);
   cnv.mouseClicked(togglePlay);
