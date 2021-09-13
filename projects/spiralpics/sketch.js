@@ -12,13 +12,13 @@ function preload() {
 function setup() {
 
 	let s = min(windowWidth,windowHeight);
-	createCanvas(windowWidth, windowHeight);
+	createCanvas(s, s);
 	cx = width/2;
 	cy = height/2;
   init();
 	background(0,255,0);
 
-	img.resize(500,500);
+	img.resize(s,s);
 	//img.resize(width,height);
 }
 
