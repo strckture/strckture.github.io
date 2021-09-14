@@ -1,4 +1,4 @@
-let radiusSpan = 8,
+let radiusSpan,
 		arcLengthStep = 1,
 		rotationSpeed = Math.PI/13, //13
 		radius,radian,cx,cy,x,y;
@@ -10,7 +10,7 @@ function preload() {
 }
 
 function setup() {
-
+	radiusSpan = width/20;
 	let s = min(windowWidth,windowHeight);
 	createCanvas(s, s);
 	cx = width/2;
