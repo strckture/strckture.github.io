@@ -1,28 +1,28 @@
-let x; //LOC
+let x;
 let y;
 
 let count = 0;
 
 var score = 0;
 
-let xMove = 5; //VEL
+let xMove = 5;
 let yMove = -5;
 
 const sizePong = 10;
 var widthPlayer = 100;
 const heightPlayer = 10;
-const handleOffset = 50;
+const handleOffset = 70;
 
 let test;
 
 let health = 3;
+let bg;
 
 function preload() {
   test = loadFont('assets/font.ttf');
 }
 
 function setup() {
-  //createCanvas(640,480);
   createCanvas(windowWidth,windowHeight);
   background(0);
 
@@ -33,20 +33,36 @@ function setup() {
 
   noCursor();
   textFont(test);
+  noStroke();
+
+  let posx = random(width)
+  let posy = random(height)
+
+////BackgroundStars
+  bg = createGraphics(windowWidth, windowHeight);
+  bg.noStroke();
+  for (let i = 0; i < 100; i++) {
+  	let x = random(windowWidth);
+  	let y = random(windowHeight);
+  	bg.fill(255,random(100));
+  	bg.rect(x, y, 3, 3);
+  }
 
   drawingContext.shadowOffsetY = 0;
-  drawingContext.shadowBlur = 10;
+  drawingContext.shadowBlur = 15;
+
 }
 
 function draw() {
   background(0);
 
-  //Pong
+////Pong
+  drawingContext.shadowBlur = 15;
   drawingContext.shadowColor = color(255,120,100);
   fill(255,120,100,200+random(55));
-  noStroke();
   rect(x,y,sizePong,sizePong);
 
+////Handicap
   if (score == 10 ){
     widthPlayer = 60;
   }
@@ -54,14 +70,12 @@ function draw() {
     widthPlayer = 20;
   }
 
-  //Handle
+////Handle
   //drawingContext.shadowColor = color(241,230,11);
   drawingContext.shadowColor = color(187,246,255);
   fill(187,246,255,180+random(75));
   //rect(mouseX, height-handleOffset,widthPlayer,heightPlayer);
   drawHandle(mouseX, height-handleOffset,widthPlayer,heightPlayer);
-
-
 
   x += xMove;
   y += yMove;
@@ -74,7 +88,7 @@ function draw() {
     yMove=-yMove;
   }
 
-  //Player
+////Player
   if((height-handleOffset-sizePong/2-heightPlayer/2<=y)&&(y<=height+sizePong/2)&&(yMove>0)&&(mouseX-widthPlayer*0.6<=x)&&(x<=mouseX+widthPlayer*0.6)){
     yMove=-(yMove+0.3);
     if(xMove>0) {
@@ -85,11 +99,12 @@ function draw() {
   score+=1;
   }
 
-  //Score
+/////Score
   textSize(20);
   textAlign(LEFT);
   text("Score: "+score,width*0.1,height*0.1);
 
+////Health
   if(y>=height){
     health = health-1;
     x = width*0.8;
@@ -100,12 +115,11 @@ function draw() {
     rect(width*0.8+i*sizePong*1.5, height*0.1-sizePong/2, sizePong,sizePong)
   }
 
-  //GameOver
+////GameOver
   if(health <= -1){
     y = height+10;
     count= 5+count;
     background(0,count);
-
     textSize(width/10);
     fill(187,246,255,180+random(75));
     textAlign(CENTER);
@@ -114,6 +128,9 @@ function draw() {
     text("Score: "+score,width/2,height*0.5);
   }
 
+  drawingContext.shadowBlur = 0;
+  image(bg,0,0);
+  //endLoop();
 }
 
 function drawHandle(x,y,b,h) {
