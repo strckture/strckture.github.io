@@ -100,20 +100,30 @@ function draw() {
   }
 
 /////Score
-  textSize(20);
   textAlign(LEFT);
-  text("Score: "+score,width*0.1,height*0.1);
+  textSize(36);
+  text(score,width*0.1,20 +height*0.1);
+  textSize(14);
+  text("Score",width*0.1,-20+height*0.1);
 
 ////Health
   if(y>=height){
     health = health-1;
-    x = width*0.8;
+    x = width*0.9;
     y = height*0.1;
   }
 
   for(let i = 0; i< health; i++) {
-    rect(width*0.8+i*sizePong*1.5, height*0.1-sizePong/2, sizePong,sizePong)
+    drawingContext.shadowColor = color(241,230,61);
+    fill(241,230,171,200+random(55));
+    rect(width*0.9-i*sizePong*1.5,5+height*0.1-sizePong/2, sizePong,sizePong)
   }
+
+  drawingContext.shadowColor = color(187,246,255);
+  fill(187,246,255,180+random(75));
+  textAlign(RIGHT);
+  textSize(14);
+  text("Health", 5+ width*0.9,-20+height*0.1);
 
 ////GameOver
   if(health <= -1){
