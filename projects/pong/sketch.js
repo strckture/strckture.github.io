@@ -64,10 +64,10 @@ function draw() {
 
 ////Handicap
   if (score == 10 ){
-    widthPlayer = 60;
+    widthPlayer = 80;
   }
   if (score == 50 ){
-    widthPlayer = 20;
+    widthPlayer = 40;
   }
 
 ////Handle
