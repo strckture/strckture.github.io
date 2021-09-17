@@ -35,7 +35,7 @@ function setup() {
   textFont(test);
 
   drawingContext.shadowOffsetY = 0;
-  drawingContext.shadowBlur = 5;
+  drawingContext.shadowBlur = 10;
 }
 
 function draw() {
@@ -57,7 +57,7 @@ function draw() {
   //Handle
   //drawingContext.shadowColor = color(241,230,11);
   drawingContext.shadowColor = color(187,246,255);
-  fill(187,246,255,200+random(55));
+  fill(187,246,255,180+random(75));
   //rect(mouseX, height-handleOffset,widthPlayer,heightPlayer);
   drawHandle(mouseX, height-handleOffset,widthPlayer,heightPlayer);
 
@@ -107,7 +107,7 @@ function draw() {
     background(0,count);
 
     textSize(width/10);
-    fill(187,246,255,200+random(55));
+    fill(187,246,255,180+random(75));
     textAlign(CENTER);
     text("GAME OVER",width/2,height*0.45);
     textSize(width/30)
