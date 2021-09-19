@@ -5,8 +5,8 @@ let count = 0;
 
 var score = 0;
 
-let xMove = 5;
-let yMove = -5;
+let xMove = 7;
+let yMove = -7;
 
 const sizePong = 10;
 var widthPlayer = 100;
@@ -128,7 +128,7 @@ function draw() {
 ////GameOver
   if(health <= -1){
     y = height+10;
-    count= 5+count;
+    count= 12+count;
     background(0,count);
     textSize(width/10);
     fill(187,246,255,180+random(75));
