@@ -1,92 +1,11 @@
-@font-face {
-  font-family: 'Atkinson Hyperlegible';
-  src:
-	 	/* local("Atkinson Hyperlegible"), */
-		url('./font/teriyake-thin-webfont.woff2') format('woff2'),
-    url('./font/teriyake-thin-webfont.woff') format('woff');
-	font-weight: 100;
-	font-style: normal;
-}
-
-@font-face {
-  font-family: 'Atkinson Hyperlegible';
-  src:
-	 	/* local("Atkinson Hyperlegible"), */
-		url('./font/teriyake-extralight-webfont.woff2') format('woff2'),
-    url('./font/teriyake-extralight-webfont.woff') format('woff');
-	font-weight: 200;
-	font-style: normal;
-}
-
-@font-face {
-  font-family: 'Atkinson Hyperlegible';
-  src:
-	 	/* local("Atkinson Hyperlegible"), */
-		url('./font/teriyake-light-webfont.woff2') format('woff2'),
-    url('./font/teriyake-light-webfont.woff') format('woff');
-	font-weight: 300;
-	font-style: normal;
-}
-
-@font-face {
-  font-family: 'Atkinson Hyperlegible';
-  src:
-	 	/* local("Atkinson Hyperlegible"), */
-		url('./font/teriyake-regular-webfont.woff2') format('woff2'),
-    url('./font/teriyake-regular-webfont.woff') format('woff');
-	font-weight: 400;
-	font-style: normal;
-}
-
-@font-face {
-  font-family: 'Atkinson Hyperlegible';
-  src:
-	 	/* local("Atkinson Hyperlegible"), */
-		url('./font/teriyake-medium-webfont.woff2') format('woff2'),
-    url('./font/teriyake-medium-webfont.woff') format('woff');
-	font-weight: 500;
-	font-style: normal;
-}
-
-@font-face {
-  font-family: 'Atkinson Hyperlegible';
-  src:
-	 	/* local("Atkinson Hyperlegible"), */
-		url('./font/teriyake-semibold-webfont.woff2') format('woff2'),
-    url('./font/teriyake-semibold-webfont.woff') format('woff');
-	font-weight: 600;
-	font-style: normal;
-}
-
-@font-face {
-  font-family: 'Atkinson Hyperlegible';
-  src:
-	 	/* local("Atkinson Hyperlegible"), */
-		url('./font/teriyake-bold-webfont.woff2') format('woff2'),
-    url('./font/teriyake-bold-webfont.woff') format('woff');
-	font-weight: 700;
-	font-style: normal;
-}
-
-@font-face {
-  font-family: 'Atkinson Hyperlegible';
-  src:
-	 	/* local("Atkinson Hyperlegible"), */
-		url('./font/teriyake-black-webfont.woff2') format('woff2'),
-    url('./font/teriyake-black-webfont.woff') format('woff');
-	font-weight: 800;
-	font-style: normal;
-}
-
-
 body {
 	margin: 0;
 	padding: 0;
 
-	font-family: "Atkinson Hyperlegible";
-  font-weight: 600;
-  letter-spacing: 0px;
-	line-height: 26px;
+	font-family: 'DM Mono', monospace;
+  font-weight: normal;
+  font-size: 16px;
+	line-height: 28px;
   font-style: normal;
 }
 
@@ -97,17 +16,12 @@ body {
 	background-color: #FFF;
 	position: fixed;
 	top: 0;
-	border-bottom:solid black 2px;
+	border-bottom:solid black 1px;
 }
 
 .logo {
-	height: 32px;
-	width: auto;
 	margin-left: 3vw;
   position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
 }
 
 .description {
@@ -119,8 +33,7 @@ body {
 }
 
 a {
-	color: #FF5C00;
-	text-decoration: none;
+	color: black;
 }
 
 .gallerycontainer {
@@ -130,15 +43,15 @@ a {
 	justify-content: center;
   /* max-width:100%; */
   grid-template-columns: repeat(2, auto);
-  border-top: 2px solid black;
+  border-top: 1px solid black;
 	overflow: hidden;
 }
 
 .gallerycontainer > div.gallery {
 	width: 50vw;
 	height: 50vw;
- 	border-bottom: 2px solid black;
- 	border-right: 2px solid black;
+ 	border-bottom: 1px solid black;
+ 	border-right: 1px solid black;
 }
 
 div.gallery img {
