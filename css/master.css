@@ -181,6 +181,7 @@ footer.bg-light a{
     width: 89vw;
     margin: 0 5.5vw 5.3vh;
     /* top: 94.7%; */
+    top: 94.7vh;
     top: 94.7svh;
   }
 
@@ -248,7 +249,7 @@ footer.bg-light a{
   }
 
   .bottom-bar{
-    top: 95.8%;
+    top: 95.8vh;
     width: 94vw;
     margin: 0 3vw 4.2vh;
   }
