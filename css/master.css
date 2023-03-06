@@ -180,7 +180,8 @@ footer.bg-light a{
   .bottom-bar{
     width: 89vw;
     margin: 0 5.5vw 5.3vh;
-    top: 94.7%;
+    /* top: 94.7%; */
+    top: 94.7svh;
   }
 
   .arrow{
