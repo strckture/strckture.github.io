@@ -182,7 +182,8 @@ footer.bg-light a{
     margin: 0 5.5vw 5.3vh;
     /* top: 94.7%; */
     top: 94.7vh;
-    top: 94.7svh;
+    /* top: 94.7svh; */
+    bottom: env(safe-area-inset-bottom);
   }
 
   .arrow{
