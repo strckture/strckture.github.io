@@ -1,0 +1,37 @@
+.imp{
+  font-size: 15px;
+  line-height: 115%;
+}
+
+.imp-h{
+  font-size: 50px;
+  margin-bottom: 90px;
+}
+
+.imp a{
+  text-decoration: underline;
+}
+
+/* BRP1 Smartphones  ---------------------------------------------------------*/
+@media screen and (max-width: 991px ) {
+  .imp{
+    margin-top: 19.5vh;
+    padding-bottom: 20vh;
+  }
+
+  .imp-container{
+    grid-column: 1 / span 8;
+  }
+}
+
+/* BRP3 Desktop (klein)  -----------------------------------------------------*/
+@media screen and (min-width: 992px) {
+  .imp{
+    margin-top: 20.83vh;
+    padding-bottom: 22.4vh;
+  }
+
+  .imp-container{
+    grid-column: 3 / span 4;
+  }
+}

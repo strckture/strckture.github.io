@@ -1,0 +1,176 @@
+.h1-tag{
+  grid-row-start: 1;
+}
+
+h1{
+  grid-row-start: 2;
+}
+
+.catch{
+  grid-column: 1 / span 2;
+  grid-row-start: 2;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 16px;
+}
+
+h3{
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.list{
+  grid-auto-rows: auto;
+}
+
+/* BRP1 Smartphones  ---------------------------------------------------------*/
+@media screen and (max-width: 991px ) {
+  /* ----------- Header ----------- */
+  .h1-tag{
+    margin-top: 19.5vh;
+  }
+
+  h1{
+    grid-column: 1 / span 8;
+  }
+
+  .catch{
+    grid-column: 1 / span 4;
+    grid-row-start: 2;
+    margin-top: 80px;
+  }
+
+  .header-img{
+    display: none;
+  }
+
+  h3{
+    grid-row-start: 3;
+    grid-column: 1 / span 8;
+  }
+
+  .h3-top{
+    margin-top: 11.8vh;
+  }
+
+  .service-list1{
+      grid-row-start: 4;
+      margin-top: 2.7vh;
+  }
+
+  .service-list1, .service-list2{
+    font-size: 21px;
+    line-height: 110%;
+    grid-column: 1 / span 8;
+  }
+
+  /* ----------- Break ----------- */
+  .break{
+    margin-top: 10.8vh;
+  }
+
+  .break-img{
+    display: none;
+  }
+
+  .break-img-mobile{
+    grid-column: 3 / span 6;
+    width: 73vw;
+  }
+
+  /* ----------- List ----------- */
+  .list{
+    margin-top: 12.4vh;
+    padding-bottom: 16.1vh;
+  }
+
+  .h3-bottom{
+    grid-row-start: 1;
+  }
+
+  .service-list2{
+    grid-row-start: 2;
+    margin-top: 2.7vh;
+  }
+
+  .list-img{
+    grid-column: 1 / span 6;
+    grid-row-start: 3;
+    margin-top: 13vh;
+    width: 73vw;
+  }
+}
+
+/* BRP3 Desktop (klein)  -----------------------------------------------------*/
+@media screen and (min-width: 992px) {
+  /* ----------- Header ----------- */
+  .h1-tag{
+    margin-top: 21.11vh;
+  }
+
+  h1{
+    grid-column: 1 / span 3;
+  }
+
+  .catch{
+    grid-column: 1 / span 2;
+    grid-row-start: 2;
+    margin-top: 120px;
+  }
+
+  .header-img{
+    grid-column: 7 / span 2;
+    grid-row-start: 2;
+    justify-self: end;
+    width: 18.9vw;
+  }
+
+  h3{
+    grid-column: 3 / span 1;
+  }
+
+  .h3-top, .service-list1{
+    grid-row-start: 2;
+    margin-top: 25.93vh;
+  }
+
+  .service-list1, .service-list2{
+    font-size: 36px;
+    line-height: 39px;
+    grid-column-start: 4;
+    width: 38.8vw;
+  }
+
+  /* ----------- Break ----------- */
+  .break{
+    margin-top: 13.33vh;
+  }
+
+  .break-img{
+    grid-column: 3 / span 6;
+    justify-self: end;
+    width: 69.32vw;
+  }
+
+  .break-img-mobile{
+    display: none;
+  }
+
+  /* ----------- List ----------- */
+  .list{
+    margin-top: 13.7vh;
+    padding-bottom: 12.56vh;
+  }
+
+  .h3-bottom, .service-list2{
+    grid-row-start: 1;
+  }
+
+  .list-img{
+    grid-column: 1 / span 3;
+    grid-row-start: 1;
+    margin-top: 11.11vh;
+    width: 22.3vw;
+  }
+}

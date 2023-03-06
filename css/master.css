@@ -1,0 +1,299 @@
+/* ----------- Fonts ----------- */
+@font-face {
+  font-family: 'SerifbabeAlpha';
+  src:
+		url('../assets/fonts/SerifbabeAlpha-Regular.woff2') format('woff2'),
+    url('../assets/fonts/SerifbabeAlpha-Regular.woff') format('woff');
+	font-weight: 400;
+}
+
+/* ----------- General ----------- */
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  line-height: 115%;
+}
+
+h1, h2, h3, h4, p, a {
+  margin: 0;
+  padding: 0;
+}
+
+.bg-light{
+  background-color: #F1EDE8;
+  color: #0A0601;
+}
+
+.bg-dark{
+  background-color: #2B2B2B;
+  color: #BCBCBC;
+}
+
+.logo-bg{
+  position: fixed;
+  /* top: 10%; */
+  top: 50%;
+  left: 50%;
+  /* transform: translate(-50%, 0); */
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+/* ----------- Fixed Bars ----------- */
+nav{
+  position: fixed;
+  z-index: 2;
+  top: 0;
+}
+
+.nav-style{
+  color: #E7E7E7;
+  mix-blend-mode: difference;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.right-nav{
+  float: right;
+  text-align: right;
+  margin-left: 4vw;
+}
+
+.bottom-bar{
+  position: sticky;
+  z-index: 2;
+  bottom: 0;
+}
+
+.bottom-bar-title{
+  position: absolute;
+  bottom: 0;
+  line-height: 12px;
+}
+
+.arrow{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.copyright{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 10px;
+  transform-origin: bottom right;
+  transform: rotate(90deg);
+  line-height: 10px;
+  font-size: 10px;
+}
+
+.c{
+  font-size: 13px;
+}
+
+.nav-style a{
+  color: #E7E7E7;
+}
+
+/* ----------- Content ----------- */
+section{
+  display: grid;
+}
+
+h1, h2{
+  font-weight: 400;
+  line-height: 90%;
+}
+
+.h-variant{
+  font-family:'SerifbabeAlpha', serif;
+}
+
+h3{
+  font-weight: 400;
+}
+
+h4{
+  margin-bottom: 17px;
+}
+
+.mono, .p-variant{
+  font-family: 'Roboto Mono', monospace;
+}
+
+.p-variant{
+  font-weight: bold;
+}
+
+.caption{
+  font-size: 10px;
+  line-height: 13px;
+}
+
+a{
+  text-decoration: none;
+  color: #0A0601;
+}
+
+.caps{
+  text-transform: uppercase;
+}
+
+/* ----------- Footer ----------- */
+footer{
+  display: grid;
+  grid-auto-rows: 15px;
+  font-size: 15px;
+}
+
+footer.bg-dark a{
+  color: #BCBCBC;
+}
+
+footer.bg-light a{
+  color: #0A0601;
+}
+
+.footer-bottom{
+  margin-top: 6px;
+  grid-row: 15 / span 2;
+}
+
+/* BRP1 Smartphones  ---------------------------------------------------------*/
+@media screen and (max-width: 991px ) {
+  body{
+    font-size: 15px;
+  }
+
+  .logo-bg{
+    width: 85vw;
+  }
+
+  nav{
+    width: 89vw;
+    margin: 5.3vh 5.5vw 0;
+  }
+
+  .bottom-bar{
+    width: 89vw;
+    margin: 0 5.5vw 5.3vh;
+    top: 94.7vh;
+  }
+
+  .arrow{
+    margin-right: 35px;
+    width: 53px;
+  }
+
+  section{
+    margin: 5.3vh 5.5vw 0;
+    grid-template-columns: 8vw 8vw 15.5vw 13vw 13vw 15.5vw 8vw 8vw;
+  }
+
+  h1, h2{
+    font-size: 56px;
+  }
+
+  footer{
+    padding-left: 5.5vw;
+    padding-right: 5.5vw;
+    padding-bottom: 5.3vh;
+    grid-template-columns: 8vw 8vw 15.5vw 13vw 13vw 15.5 8vw 8vw;
+  }
+
+  .footer-left, .footer-mid, .footer-right{
+    grid-column: 1 / span 4;
+  }
+
+  .footer-left{
+    grid-row-start: 4;
+  }
+
+  .footer-mid{
+    grid-row-start: 13;
+  }
+
+  .footer-right{
+    grid-row-start: 20;
+  }
+
+  .footer-bottom{
+    grid-row-start: 27;
+  }
+
+  .imp-link{
+    grid-column: 6 / span 2;
+    grid-row-start: 28;
+    justify-self:end;
+  }
+}
+
+/* BRP3 Desktop (klein)  -----------------------------------------------------*/
+@media screen and (min-width: 992px) {
+  body{
+    font-size: 19px;
+  }
+
+  .logo-bg{
+    width: 37.5vw;
+  }
+
+  nav{
+    width: 94vw;
+    margin: 4.2vh 3vw 0;
+  }
+
+  .bottom-bar{
+    top: 95.8vh;
+    width: 94vw;
+    margin: 0 3vw 4.2vh;
+  }
+
+  .arrow{
+    margin-right: 49px;
+    width: 105px;
+  }
+
+  section{
+    margin:0 3vw 0;
+    grid-template-columns: 8vw 8vw 17vw 14vw 14vw 17vw 8vw 8vw;
+  }
+
+  h1, h2{
+    font-size: 100px;
+  }
+
+  footer{
+    padding-left: 3vw;
+    padding-bottom: 4.2vh;
+    grid-template-columns: 8vw 8vw 17vw 14vw 14vw 17vw 8vw 8vw;
+  }
+
+  .footer-left, .footer-mid, .footer-right{
+    grid-row-start: 3;
+  }
+
+  .footer-left{
+    grid-column: 3 / span 1;
+  }
+
+  .footer-mid{
+    grid-column: 4 / span 2;
+    padding-left: 5.5vw
+  }
+
+  .footer-right{
+    grid-column: 6 / span 1;
+  }
+
+  .footer-bottom{
+    grid-row-start: 15;
+  }
+
+  .imp-link{
+    grid-row-start: 16;
+  }
+}
