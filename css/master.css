@@ -183,7 +183,7 @@ footer.bg-light a{
     /* top: 94.7%; */
     top: 94.7vh;
     /* top: 94.7svh; */
-    padding-bottom: safe-area-inset-bottom;
+    padding-bottom: env(safe-area-inset-bottom);
   }
 
   .arrow{
