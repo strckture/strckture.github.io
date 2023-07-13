@@ -97,15 +97,17 @@
 
 			}, 
             function ( xhr ) {
-			    // console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+			    console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
 
 					
                 if (xhr.loaded / xhr.total * 100 == 100) {
 					console.log('Model geladen.')
 				}
 
-				document.getElementById('loadProgress').innerText = 'loading: ' + (xhr.loaded / xhr.total * 100).toFixed(2) + '%'
 
+				if (xhr.loaded / xhr.total * 100 <= 100) {
+					document.getElementById('loadProgress').innerText = 'loading: ' + (xhr.loaded / xhr.total * 100).toFixed(2) + '%'
+				}
 			},
 
 		    // called when loading has errors
