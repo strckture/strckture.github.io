@@ -99,11 +99,9 @@
             function ( xhr ) {
 			    console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
 
-					
                 if (xhr.loaded / xhr.total * 100 == 100) {
 					console.log('Model geladen.')
 				}
-
 
 				if (xhr.loaded / xhr.total * 100 <= 100) {
 					document.getElementById('loadProgress').innerText = (xhr.loaded / xhr.total * 100).toFixed(2) + '%'
