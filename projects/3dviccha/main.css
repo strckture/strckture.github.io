@@ -19,6 +19,7 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	text-align: center;
 	position: fixed;
 	overflow: hidden;
 	z-index: 999;
