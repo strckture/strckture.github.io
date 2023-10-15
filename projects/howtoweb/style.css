@@ -89,7 +89,7 @@ input[type="checkbox"] {
 
 input[type="checkbox"]:after {
   font-family: 'Red Hat Mono', monospace;
-  content: 'get in touch';
+  content: 'Get in touch';
 }
 
 input[type="checkbox"]:checked {
