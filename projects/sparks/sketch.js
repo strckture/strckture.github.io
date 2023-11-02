@@ -2,7 +2,7 @@ let Shader;
 const balls=[],num=1000;
 let spawn=[0,0];
 
-
+let mic
 
 function windowResized() {
     resizeCanvas(windowWidth,windowHeight);
@@ -17,19 +17,37 @@ function preload(){
 function setup() {
     let cnv = createCanvas(windowWidth,windowHeight,WEBGL);
     cnv.mouseClicked(togglePlay);
+
+	// AMP LOAD
     amplitude = new p5.Amplitude();
+
+	// MIC
+	// mic = new p5.AudioIn();
+	// mic.start();
 
     background(25);
     pixelDensity(1);
     noStroke();
     // color(0,0,255);
+
+	spawn=[width/2,height/2];
 }
 
 function draw() {
 	let data=[];
+
+	// AMP LOAD
     let level = amplitude.getLevel();
+	let levelsize = map(level, 0, 1, 0, 100);
+
+	// MIC
+	// let level = mic.getLevel();
+	// let ampsize = map(level, 0, 1, 0, 300);
+
+	// print(ampsize);
 
     // print(level);
+	// print(levelsize);
 
 	if (random()>0.8) {
 		for (let i=0;i<num/10;i++) {
@@ -49,11 +67,15 @@ function draw() {
 	}
 
     // if (level*10 >.5) {spawn=[random(150,width-150),random(150,height-150)];}
-    // if (frameCount%30<25) {spawn=[random(150,width-150),random(150,height-150)];}
-    // else {
 
+    if (frameCount%30<25 && levelsize >40) {spawn=[random(150,width-150),random(150,height-150)];}
+
+	// if (frameCount%30<25 && ampsize >.8) {spawn=[random(150,width-150),random(150,height-150)];}
+
+    else { 
+		
     // if (mouseIsPressed) {
-    if (level*10 >.7) {
+    // if (level*10 >.7) {
 		for (let bl=0;bl<balls.length;bl++) {
 			if (balls[bl].rad<0.2&&random()>0.8) {
 				let a=random(2*PI);
@@ -61,15 +83,27 @@ function draw() {
 				let b={
 					// x:mouseX,
 					// y:mouseY,
-                    // x:spawn[0],
-					// y:spawn[1],
-                    x:width/2,
-					y:height/2,
+                    x:spawn[0],
+					y:spawn[1],
+                    // x:width/2,
+					// y:height/2,
 					vx:cos(a)*random(3.5,4.5),
 					vy:sin(a)*random(3.5,4.5),
+
+
+					// vx:cos(a)*levelsize/3,
+					// vy:sin(a)*levelsize/3,
+
+
 					// rad:random(2,5)
                     // rad:random(level*15)
-                    rad:level*10
+                    // rad:0+level*10
+
+					// AMP LOAD
+					rad: 0+ levelsize/15
+
+					// MIC
+					// rad:0+ampsize
 				}
 				balls[bl]=b;
 			}
@@ -90,8 +124,6 @@ function draw() {
     shader(Shader);
     Shader.setUniform("balls",data);
     rect(0,0,width,height);
-
-    // print(spawn);
 }
 
 function togglePlay() {
@@ -133,7 +165,7 @@ function getShader(_renderer) {
 				v+=b.z*b.z/((b.x-x)*(b.x-x)+(b.y-y)*(b.y-y));
 			}
 			v=sqrt(v);
-			gl_FragColor = vec4(v,  v-.5    ,0.     ,1.);
+			gl_FragColor = vec4(v,  v-.5    ,.15     ,1);
 		}
 	`;
 	return new p5.Shader(_renderer, vert, frag);
