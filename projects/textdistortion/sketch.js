@@ -17,10 +17,10 @@ function setup() {
 	
 	// ------------ create graphic with text ------------------ //
 	graphic = createGraphics(size, size);
-	graphic.background(255,0,0);
+	graphic.background(255,0,255);
   	graphic.noStroke();
 	// graphic.textFont(font);
-  	graphic.textSize(windowWidth*0.14);
+  	graphic.textSize(windowHeight*0.14);
 	graphic.textAlign(CENTER,CENTER);
 	graphic.fill(0,255,255);
   	graphic.stroke(0);
