@@ -1,5 +1,5 @@
 let Shader;
-const balls=[],num=1000;
+const balls=[],num=500;
 let spawn=[0,0];
 
 let mic
@@ -10,7 +10,6 @@ function windowResized() {
 
 function preload(){
     Shader=getShader(this._renderer);
-    // sound = loadSound('assets/beat.mp3');
     sound = loadSound('assets/delilah.mp3');
 }
 
@@ -28,7 +27,6 @@ function setup() {
     background(25);
     pixelDensity(1);
     noStroke();
-    // color(0,0,255);
 
 	spawn=[width/2,height/2];
 }
@@ -42,10 +40,9 @@ function draw() {
 
 	// MIC
 	// let level = mic.getLevel();
-	// let ampsize = map(level, 0, 1, 0, 300);
+	// let ampsize = map(level, 0, 1, 0, 200);
 
 	// print(ampsize);
-
     // print(level);
 	// print(levelsize);
 
@@ -68,9 +65,9 @@ function draw() {
 
     // if (level*10 >.5) {spawn=[random(150,width-150),random(150,height-150)];}
 
-    if (frameCount%30<25 && levelsize >40) {spawn=[random(150,width-150),random(150,height-150)];}
+    // if (frameCount%30<25 && levelsize >40) {spawn=[random(150,width-150),random(150,height-150)];}
 
-	// if (frameCount%30<25 && ampsize >.8) {spawn=[random(150,width-150),random(150,height-150)];}
+	if (frameCount%30<25 && ampsize >5) {spawn=[random(150,width-150),random(150,height-150)];}
 
     else { 
 		
@@ -143,19 +140,21 @@ function getShader(_renderer) {
 		attribute vec3 aPosition;
 		attribute vec2 aTexCoord;
 		varying vec2 vTexCoord;
+
 		void main() {
 			vTexCoord = aTexCoord;
-			vec4 positionVec4=vec4(aPosition,1.);
-			positionVec4.xy=positionVec4.xy*2.-1.; 
+			vec4 positionVec4 = vec4(aPosition, 1.0);
+			positionVec4.xy = positionVec4.xy*2.-1.; 
 			gl_Position = positionVec4;
 		}
 	`;
 	const frag = `
-		precision lowp float;
+		precision mediump float;
 		varying vec2 vTexCoord;
 		const float WIDTH=${windowWidth}.;
 		const float HEIGHT=${windowHeight}.;
 		uniform vec3 balls[${num}];
+
 		void main() {
 			float x=vTexCoord.x*WIDTH;
 			float y=HEIGHT-vTexCoord.y*HEIGHT;
@@ -165,7 +164,7 @@ function getShader(_renderer) {
 				v+=b.z*b.z/((b.x-x)*(b.x-x)+(b.y-y)*(b.y-y));
 			}
 			v=sqrt(v);
-			gl_FragColor = vec4(v,  v-.5    ,.15     ,1);
+			gl_FragColor = vec4(v,  v-.5    ,.15     , 1);
 		}
 	`;
 	return new p5.Shader(_renderer, vert, frag);
