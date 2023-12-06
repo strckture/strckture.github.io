@@ -7,6 +7,10 @@ function preload() {
 	// font = loadFont('Barlow-Black.otf');
 }
 
+function windowResized() {
+    resizeCanvas(windowWidth,windowHeight);
+}
+
 function setup() {
 	let orientation = windowWidth > windowHeight ? 'landscape' : 'portrait';
 	let size = orientation === 'portrait' ? windowWidth : windowHeight;
@@ -25,7 +29,7 @@ function setup() {
 	graphic.fill(0,255,255);
   	graphic.stroke(0);
   	graphic.strokeWeight(0);
-  	graphic.text('healing',size*0.5,size*0.5);
+  	graphic.text('Passion',size*0.5,size*0.5);
 	
 	shader(currentShader);
 	currentShader.setUniform('tex', graphic);
