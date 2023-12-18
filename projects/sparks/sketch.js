@@ -1,5 +1,5 @@
 let Shader;
-const balls=[],num=500;
+const balls=[],num=100;
 let spawn=[0,0];
 
 let mic
@@ -13,16 +13,25 @@ function preload(){
     sound = loadSound('assets/delilah.mp3');
 }
 
+function btntest(){
+	print("test");
+	getAudioContext().resume();
+}
+
 function setup() {
     let cnv = createCanvas(windowWidth,windowHeight,WEBGL);
-    cnv.mouseClicked(togglePlay);
+	cnv.position(0,0);
+	cnv.style('z-index','-1');
+
+    // cnv.mouseClicked(togglePlay);
 
 	// AMP LOAD
-    amplitude = new p5.Amplitude();
+    // amplitude = new p5.Amplitude();
 
 	// MIC
-	// mic = new p5.AudioIn();
-	// mic.start();
+	mic = new p5.AudioIn();
+	mic.start();
+	
 
     background(25);
     pixelDensity(1);
@@ -35,16 +44,12 @@ function draw() {
 	let data=[];
 
 	// AMP LOAD
-    let level = amplitude.getLevel();
-	let levelsize = map(level, 0, 1, 0, 100);
+    // let level = amplitude.getLevel();
+	// let levelsize = map(level, 0, 1, 0, 100);
 
 	// MIC
-	// let level = mic.getLevel();
-	// let ampsize = map(level, 0, 1, 0, 200);
-
-	// print(ampsize);
-    // print(level);
-	// print(levelsize);
+	let level = mic.getLevel();
+	let ampsize = map(level, 0, 1, 0, 200);
 
 	if (random()>0.8) {
 		for (let i=0;i<num/10;i++) {
@@ -63,15 +68,14 @@ function draw() {
 		}
 	}
 
-    // if (level*10 >.5) {spawn=[random(150,width-150),random(150,height-150)];}
+	//AMP
+    // if (frameCount%30<25 && levelsize >40) {spawn=[random(150,width-150),random(150,height-150)];}
 
-    if (frameCount%30<25 && levelsize >40) {spawn=[random(150,width-150),random(150,height-150)];}
-
-	// if (frameCount%30<25 && ampsize >5) {spawn=[random(150,width-150),random(150,height-150)];}
+	// MIC
+	if (frameCount%30<25 && ampsize >5) {spawn=[random(150,width-150),random(150,height-150)];}
     else { 
 		
-    // if (mouseIsPressed) {
-    // if (level*10 >.7) {
+
 		for (let bl=0;bl<balls.length;bl++) {
 			if (balls[bl].rad<0.2&&random()>0.8) {
 				let a=random(2*PI);
@@ -86,7 +90,6 @@ function draw() {
 					vx:cos(a)*random(3.5,4.5),
 					vy:sin(a)*random(3.5,4.5),
 
-
 					// vx:cos(a)*levelsize/3,
 					// vy:sin(a)*levelsize/3,
 
@@ -96,10 +99,10 @@ function draw() {
                     // rad:0+level*10
 
 					// AMP LOAD
-					rad: 0+ levelsize/15
+					// rad: 0+ levelsize/15
 
 					// MIC
-					// rad:0+ampsize
+					rad:0+ampsize
 				}
 				balls[bl]=b;
 			}
@@ -122,15 +125,15 @@ function draw() {
     rect(0,0,width,height);
 }
 
-function togglePlay() {
-    if (sound.isPlaying() ){
-        sound.pause();
-    } else {
-        sound.loop();
-        amplitude = new p5.Amplitude();
-        amplitude.setInput(sound);
-    }
-  }
+// function togglePlay() {
+//     if (sound.isPlaying() ){
+//         sound.pause();
+//     } else {
+//         sound.loop();
+//         amplitude = new p5.Amplitude();
+//         amplitude.setInput(sound);
+//     }
+//   }
 
 
 function getShader(_renderer) {

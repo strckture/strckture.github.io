@@ -1,26 +1,67 @@
 <!DOCTYPE html>
 <html lang="">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>fireworks</title>
-  <style>
-    body {
-      padding: 0;
-      margin: 0;
-      overflow: hidden;
-      /* cursor: none; */
-    }
-  </style>
+
+  <link rel="stylesheet" href="style.css">
   <script src="./../../libraries/p5.min.js"></script>
   <script src="./../../libraries/p5.sound.min.js"></script>
   <script src="sketch.js"></script>
 </head>
 
 <body>
-  <main>
-  </main>
+  <div id="about">
+
+    <h1>Urban Noise</h1>
+    <p>Urban noise in a design context refers to the complex auditory environment shaped by human activities within city settings. 
+      It encompasses various sound sources, such as traffic, construction, and social interactions, 
+      impacting the acoustic landscape. <br>
+      Designers address urban noise to enhance the quality of public spaces,
+      considering factors like soundscapes, architectural acoustics, and strategic placement of elements. 
+      Mitigation strategies may involve incorporating sound-absorbing materials, green spaces, 
+      and thoughtful urban planning to create environments fostering tranquility and well-being.
+      Urban noise management in design aims for a harmonious coexistence of city life and environmental sensitivity, 
+      fostering spaces that balance functionality with auditory comfort.
+    </p>
+
+
+
+    <button onclick="btntest()">
+      let's go
+    </button>
+
+    <div class="bg"></div>
+
+  </div>
+
+
+  <script>
+    let box = document.getElementById('about'),
+    btn = document.querySelector('button');
+
+    btn.addEventListener('click', function () {
+  
+    if (box.classList.contains('hidden')) {
+      box.classList.remove('hidden');
+      setTimeout(function () {
+        box.classList.remove('visuallyhidden');
+      }, 20);
+    } else {
+      box.classList.add('visuallyhidden');    
+      box.addEventListener('transitionend', function(e) {
+        box.classList.add('hidden');
+      }, {
+        capture: false,
+        once: true,
+        passive: false
+      });
+    }
+    
+  }, false);
+
+  </script>
 </body>
 
 </html>
