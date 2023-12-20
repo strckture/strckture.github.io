@@ -15,7 +15,9 @@ function preload(){
 
 function btntest(){
 	print("test");
-	getAudioContext().resume();
+
+	// ???
+	// getAudioContext().resume();
 }
 
 function setup() {
