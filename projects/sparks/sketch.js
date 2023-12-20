@@ -1,6 +1,6 @@
 let Shader;
-const balls=[],num=100;
-let spawn=[0,0];
+const balls=[];
+let spawn=[0,0], num=1000;
 
 let mic
 
@@ -25,7 +25,15 @@ function setup() {
 	cnv.position(0,0);
 	cnv.style('z-index','-1');
 
+	if (windowWidth <= 500) {
+		num = 800;
+	} else {
+		num = 200;
+	}
+
     // cnv.mouseClicked(togglePlay);
+
+
 
 	// AMP LOAD
     // amplitude = new p5.Amplitude();
