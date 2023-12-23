@@ -18,16 +18,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
       }
     });
-  
-//     // Your custom function for the "on" state
-//     function onToggleOn() {
-//       console.log('Toggle is ON');
-//       // Add your custom code here
-//     }
-  
-//     // Your custom function for the "off" state
-//     function onToggleOff() {
-//       console.log('Toggle is OFF');
-//       // Add your custom code here
-//     }
+
   });
