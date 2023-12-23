@@ -44,7 +44,7 @@ p{
     background-color: #07002670;
     backdrop-filter: blur(10px);
 
-    padding: 40px;
+    padding: 20px;
 
     transition: transform 700ms;
     /* display: flex;
@@ -58,22 +58,22 @@ p{
 .toggle-container{
     position: absolute;
     bottom: 0;
-    margin-bottom: 40px;
-    margin-left: 40px;
+    margin-bottom: 20px;
+    margin-left: 20px;
     display: flex;
     align-items: center;
 }
 
 .toggle-label{
     margin-left: 12px;
-    font-size: 20px;
+    font-size: 12px;
 }
 
 .toggle-switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 54px;
+    height: 28px;
 }
   
 .toggle-switch input {
@@ -95,8 +95,8 @@ p{
 .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
+    height: 20px;
+    width: 20px;
     left: 4px;
     bottom: 4px;
     background-color: white;
