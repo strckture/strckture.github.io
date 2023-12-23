@@ -34,7 +34,7 @@
 
 
 
-  <div class="toggle-container">
+  <div id="toggle-container">
     <label class="toggle-switch">
       <input type="checkbox" id="toggleCheckbox">
       <span class="slider"></span>
@@ -54,10 +54,13 @@
 
   <!-- Overlay Anim -->
   <script>
-    let box = document.getElementById('about'),
+    let box = document.getElementById('about'), 
+    togglecontainer = document.getElementById('toggle-container'),
     btn = document.querySelector('button');
 
     btn.addEventListener('click', function () {
+
+      togglecontainer.style.opacity = "1";
   
     if (box.classList.contains('hidden')) {
       box.classList.remove('hidden');
