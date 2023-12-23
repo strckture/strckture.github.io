@@ -1,8 +1,10 @@
 let Shader;
 const balls=[];
-let spawn=[0,0], num=1000;
+let spawn=[0,0], num=800;
 
 let mic
+
+var loading = true;
 
 function windowResized() {
     resizeCanvas(windowWidth,windowHeight);
@@ -10,14 +12,13 @@ function windowResized() {
 
 function preload(){
     Shader=getShader(this._renderer);
-    sound = loadSound('assets/delilah.mp3');
+	// second preload
+    // sound = loadSound('assets/delilah.mp3');
 }
 
-function btntest(){
-	print("test");
-
-	// ???
-	// getAudioContext().resume();
+function soundLoaded(soundloaded){
+	sound = soundloaded;
+	loading = false;
 }
 
 function setup() {
@@ -25,22 +26,25 @@ function setup() {
 	cnv.position(0,0);
 	cnv.style('z-index','-1');
 
+	sound = loadSound('assets/delilah.mp3', soundLoaded);
+
 	if (windowWidth <= 500) {
 		num = 800;
 	} else {
 		num = 200;
 	}
 
-    // cnv.mouseClicked(togglePlay);
-
-
+	// if (loading === true){
+	cnv.mouseClicked(togglePlay);
+	// }
+    
 
 	// AMP LOAD
-    // amplitude = new p5.Amplitude();
+    amplitude = new p5.Amplitude();
 
 	// MIC
-	mic = new p5.AudioIn();
-	mic.start();
+	// mic = new p5.AudioIn();
+	// mic.start();
 	
 
     background(25);
@@ -53,13 +57,14 @@ function setup() {
 function draw() {
 	let data=[];
 
+
 	// AMP LOAD
-    // let level = amplitude.getLevel();
-	// let levelsize = map(level, 0, 1, 0, 100);
+    let level = amplitude.getLevel();
+	let levelsize = map(level, 0, 1, 0, 100);
 
 	// MIC
-	let level = mic.getLevel();
-	let ampsize = map(level, 0, 1, 0, 200);
+	// let level = mic.getLevel();
+	// let ampsize = map(level, 0, 1, 0, 200);
 
 	if (random()>0.8) {
 		for (let i=0;i<num/10;i++) {
@@ -78,11 +83,15 @@ function draw() {
 		}
 	}
 
+
+
 	//AMP
-    // if (frameCount%30<25 && levelsize >40) {spawn=[random(150,width-150),random(150,height-150)];}
+    if (frameCount%30<25 && levelsize >40) {spawn=[random(150,width-150),random(150,height-150)];}
 
 	// MIC
-	if (frameCount%30<25 && ampsize >5) {spawn=[random(150,width-150),random(150,height-150)];}
+	// if (frameCount%30<25 && ampsize >3) {spawn=[random(150,width-150),random(150,height-150)];}
+
+
     else { 
 		
 
@@ -109,10 +118,10 @@ function draw() {
                     // rad:0+level*10
 
 					// AMP LOAD
-					// rad: 0+ levelsize/15
+					rad: 0+ levelsize/15
 
 					// MIC
-					rad:0+ampsize
+					// rad:0+ampsize
 				}
 				balls[bl]=b;
 			}
@@ -135,49 +144,13 @@ function draw() {
     rect(0,0,width,height);
 }
 
-// function togglePlay() {
-//     if (sound.isPlaying() ){
-//         sound.pause();
-//     } else {
-//         sound.loop();
-//         amplitude = new p5.Amplitude();
-//         amplitude.setInput(sound);
-//     }
-//   }
+function togglePlay() {
+    if (sound.isPlaying() ){
+        sound.pause();
+    } else {
+        sound.loop();
+        amplitude = new p5.Amplitude();
+        amplitude.setInput(sound);
+    }
+  }
 
-
-function getShader(_renderer) {
-	const vert = `
-		precision lowp float;
-		attribute vec3 aPosition;
-		attribute vec2 aTexCoord;
-		varying vec2 vTexCoord;
-
-		void main() {
-			vTexCoord = aTexCoord;
-			vec4 positionVec4 = vec4(aPosition, 1.0);
-			positionVec4.xy = positionVec4.xy*2.-1.; 
-			gl_Position = positionVec4;
-		}
-	`;
-	const frag = `
-		precision mediump float;
-		varying vec2 vTexCoord;
-		const float WIDTH=${windowWidth}.;
-		const float HEIGHT=${windowHeight}.;
-		uniform vec3 balls[${num}];
-
-		void main() {
-			float x=vTexCoord.x*WIDTH;
-			float y=HEIGHT-vTexCoord.y*HEIGHT;
-			float v=0.;
-			for (int i=0;i<${num};i++) {
-				vec3 b=balls[i];
-				v+=b.z*b.z/((b.x-x)*(b.x-x)+(b.y-y)*(b.y-y));
-			}
-			v=sqrt(v);
-			gl_FragColor = vec4(v,  v-.5    ,.15     , 1);
-		}
-	`;
-	return new p5.Shader(_renderer, vert, frag);
-}

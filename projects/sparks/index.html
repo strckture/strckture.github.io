@@ -6,14 +6,13 @@
   <title>fireworks</title>
 
   <link rel="stylesheet" href="style.css">
-  <script src="./../../libraries/p5.min.js"></script>
-  <script src="./../../libraries/p5.sound.min.js"></script>
-  <script src="sketch.js"></script>
+  <script src="js/bg.js"></script>
 </head>
 
 <body>
-  <div id="about">
 
+  <!-- Overlay -->
+  <div id="about">
     <h1>Urban Noise</h1>
     <p>Urban noise in a design context refers to the complex auditory environment shaped by human activities within city settings. 
       It encompasses various sound sources, such as traffic, construction, and social interactions, 
@@ -26,17 +25,25 @@
       fostering spaces that balance functionality with auditory comfort.
     </p>
 
-
-
-    <button onclick="btntest()">
+    <button>
       let's go
     </button>
 
-    <div class="bg"></div>
-
+    <!-- <div class="dark"></div> -->
   </div>
 
+  <label class="toggle-switch">
+    <input type="checkbox" id="toggleCheckbox">
+    <span class="slider"></span>
+  </label>
 
+
+  <!-- Background -->
+  <div class="bg" id="iframe_div">
+    <iframe id="contentFrame" src="mic.html" name="testiframe"></iframe>
+  </div>
+
+  <!-- Overlay Anim -->
   <script>
     let box = document.getElementById('about'),
     btn = document.querySelector('button');
