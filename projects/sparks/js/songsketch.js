@@ -1,6 +1,6 @@
 let Shader;
 const balls=[];
-let spawn=[0,0], num=800;
+let spawn=[0,0], num=600;
 
 let mic
 
@@ -29,7 +29,7 @@ function setup() {
 	sound = loadSound('assets/delilah.mp3', soundLoaded);
 
 	if (windowWidth <= 500) {
-		num = 800;
+		num = 600;
 	} else {
 		num = 200;
 	}
