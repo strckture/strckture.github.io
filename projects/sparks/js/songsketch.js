@@ -67,25 +67,6 @@ function draw() {
 		}
 	}
 
-	// AlexFunction
-	if (mouseIsPressed) {
-		for (let bl=0;bl<balls.length;bl++) {
-			if (balls[bl].rad<0.2&&random()>0.8) {
-				let a=random(2*PI);
-				let g=random();
-				let b={
-					x:mouseX,
-					y:mouseY,
-					vx:cos(a)*random(3.5,4.5),
-					vy:sin(a)*random(3.5,4.5),
-
-					rad:random(2,5)
-				}
-				balls[bl]=b;
-			}
-		}
-	}
-
 	//AMP
     if (frameCount%30<25 && levelsize >40) {spawn=[random(150,width-150),random(150,height-150)];}
 
