@@ -4,6 +4,7 @@ body {
     overflow: hidden;
     color: #FFFFFF;
     font-family: monospace;
+    font-size: 16px;
 }
 
 h1, p{
@@ -13,6 +14,7 @@ h1, p{
 
 h1{
     font-size: 56px;
+    margin: 36px 0px 24px 0px;
 }
 
 .visuallyhidden{
@@ -39,9 +41,34 @@ h1{
     background-color: #07002670;
     backdrop-filter: blur(10px);
 
-    padding: 20px;
-
     transition: transform 700ms;
+}
+
+.text-container{
+    margin: 0px 20px;
+}
+
+.red{
+    color: #EC3125;
+}
+
+button{
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    margin: 100px 0px;
+    transform: translate(-50%, 0);
+
+    background-color: #EC3125;
+    border: none;
+    color: white;
+    padding: 15px 42px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+    font-size: 24px;
+    cursor: pointer;
 }
 
 #toggle-container{
