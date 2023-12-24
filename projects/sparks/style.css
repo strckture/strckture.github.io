@@ -1,10 +1,27 @@
+
+@font-face {
+    font-family: 'Ygro Sans';
+    src:
+        url('assets/YGROSANSBETA-BOOK.woff2') format('woff2'),
+        url('assets7YGROSANSBETA-BOOK.woff') format('woff');
+        font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Anderson Grotesk';
+    src:
+        url('assets/ANDERSONGROTESK-BLACK.woff2') format('woff2'),
+        url('assets/ANDERSONGROTESK-BLACK.woff') format('woff');
+}
+/* -------------------------------------------------------------------------------- */
+
 body {
     padding: 0;
     margin: 0;
     overflow: hidden;
     color: #FFFFFF;
-    font-family: monospace;
-    font-size: 16px;
+    font-family: Ygro Sans, sans-serif;
+    font-size: 14px;
 }
 
 h1, p{
@@ -13,8 +30,9 @@ h1, p{
 }
 
 h1{
-    font-size: 56px;
+    font-size: 48px;
     margin: 36px 0px 24px 0px;
+    font-family: Anderson Grotesk, sans-serif;
 }
 
 .visuallyhidden{
@@ -62,12 +80,13 @@ button{
     background-color: #EC3125;
     border: none;
     color: white;
-    padding: 15px 42px;
+    padding: 12px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     border-radius: 4px;
-    font-size: 24px;
+    font-family: Ygro Sans, sans-serif;
+    font-size: 18px;
     cursor: pointer;
 }
 
