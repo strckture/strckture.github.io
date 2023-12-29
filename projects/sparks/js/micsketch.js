@@ -78,7 +78,7 @@ function draw() {
 	// }
 
 	// MIC
-	if (frameCount%30<25 && ampsize >3) {spawn=[random(150,width-150),random(150,height-150)];}
+	if (frameCount%30<25 && ampsize >2) {spawn=[random(150,width-150),random(150,height-150)];}
 
     else { 
 		
