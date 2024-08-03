@@ -1,28 +1,56 @@
-
 let sections = [];
 let currentCol ;
 
 let hue = 0;
-let sat = 0;
+let sat = 255;
 let bright = 255;
+
+var loading = true;
+let lastAmplitude = 0; // Store the last amplitude value
+let threshold = 1; // Define a threshold to determine a significant change
 
 
 function windowResized(){
 	resizeCanvas(windowWidth, windowHeight);
 }
 
+function soundLoaded(soundloaded){
+	sound = soundloaded;
+	loading = false;
+}
+
 function setup() {
-	createCanvas(windowWidth,windowHeight);
+	let cnv = createCanvas(windowWidth,windowHeight);
 	colorMode(HSB);
 
 	currentCol  = color(hue, sat, bright);
-	stroke(255-hue, 255-bright, sat);
+	stroke(0);
+
+	sound = loadSound('assets/end.mp3', soundLoaded);
+
+	cnv.mouseClicked(togglePlay);
+	amplitude = new p5.Amplitude();
 }
 
 function draw() {
-	
-
 	background(currentCol);
+	let level = amplitude.getLevel();
+	let levelsize = map(level, 0, 1, 0, 100);
+
+	if (abs(levelsize - lastAmplitude) > threshold) {
+		// Update the last amplitude if the change is significant
+		lastAmplitude = levelsize;
+		console.log("New amplitude level:", levelsize); 
+		if (levelsize > 52){
+				yoink();
+		}
+	}
+
+	fill(255,0,255,.5);
+	noStroke();
+	ellipse(windowWidth/2, windowHeight-35, 10+levelsize, 10+levelsize);
+
+	stroke(0);
 	for (let a = sections.length - 1; a >= 0; a--) {
 		sections[a].dessine();
 	}
@@ -34,17 +62,11 @@ function draw() {
 		}
 	}
 	sections = newsections;
-
-	
-
-	stroke(255-hue, 255-bright, sat);
-
-	// print(sat);
-	print(bright);
 }
 
-function mousePressed() {
-	let center = [mouseX, mouseY];
+
+function yoink() {
+	let center = [random(windowWidth), random(windowHeight)];
 	let p1 = [0, 0];
 	let p2 = [width, 0];
 	let p3 = [width, height];
@@ -152,3 +174,13 @@ class Coord {
 		return toreturn;
 	}
 }
+
+function togglePlay() {
+    if (sound.isPlaying() ){
+        sound.pause();
+    } else {
+        sound.loop();
+        amplitude = new p5.Amplitude();
+        amplitude.setInput(sound);
+    }
+  }
