@@ -46,9 +46,9 @@ function draw() {
 		}
 	}
 
-	fill(255,0,255,.5);
+	fill(255,0,255);
 	noStroke();
-	ellipse(windowWidth/2, windowHeight-35, 10+levelsize, 10+levelsize);
+	ellipse(windowWidth-40, 40, 10+levelsize, 10+levelsize);
 
 	stroke(0);
 	for (let a = sections.length - 1; a >= 0; a--) {
