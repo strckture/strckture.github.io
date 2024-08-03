@@ -6,8 +6,8 @@ let sat = 255;
 let bright = 255;
 
 var loading = true;
-let lastAmplitude = 0; // Store the last amplitude value
-let threshold = 1; // Define a threshold to determine a significant change
+let lastAmplitude = 0;
+let threshold = 1;
 
 
 function windowResized(){
@@ -23,7 +23,7 @@ function setup() {
 	let cnv = createCanvas(windowWidth,windowHeight);
 	colorMode(HSB);
 
-	currentCol  = color(hue, sat, bright);
+	currentCol  = color(random(200), sat, 255,0.8);
 	stroke(0);
 
 	sound = loadSound('assets/end.mp3', soundLoaded);
@@ -46,7 +46,7 @@ function draw() {
 		}
 	}
 
-	fill(255,0,255);
+	fill(255);
 	noStroke();
 	ellipse(windowWidth-40, 40, 10+levelsize, 10+levelsize);
 
@@ -74,14 +74,14 @@ function yoink() {
 
 	hue = random(255);
 
-	if (sat < 255) {
-		sat = sat +2;
-	}
-
+	// if (sat < 255) {
+	// 	sat = sat +2;
+	// }
+	sat = random(200,255);
 	bright = random(255);
 
 	cut(10, p1, p2, p3, p4, center, currentCol );
-	currentCol  = color(hue, sat, bright);
+	currentCol  = color(hue, sat, bright,0.8);
 }
 
 function cut(fois, a, b, c, d, center, coul) {

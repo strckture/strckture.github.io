@@ -76,7 +76,7 @@ h1, p{
 }
 
 input:checked + .slider {
-    background-color: #00ffea;
+    background-color: #007AFF;
 }
 
 input:checked + .slider:before {
