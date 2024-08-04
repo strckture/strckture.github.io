@@ -21,7 +21,7 @@ function setup() {
 }
 
 function draw() {
-	background(currentCol);
+	// background(currentCol);
 	
 	fill(200,255,255);
 	cnv.mouseClicked(test);
@@ -49,8 +49,7 @@ function test() {
 }
 
 function mousePressed() {
-	fill(0,255,255);
-	rect(60, 100, 55, 55);
+	background(random(255),random(255),random(255));
 }
 
 // function mousePressed() {
