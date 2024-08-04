@@ -16,7 +16,7 @@ function setup() {
 	cnv = createCanvas(windowWidth,windowHeight);
 	colorMode(HSB);
 
-	currentCol  = color(200, sat, bright,.8);
+	currentCol  = color(0, sat, bright,.8);
 	stroke(255);
 }
 
@@ -28,7 +28,7 @@ function draw() {
 
 	if (mouseIsPressed) {
 		fill(200,255,255);
-		rect(30, 20, 55, 55);;
+		rect(30, 20, 55, 55);
 	}
 
 	for (let a = sections.length - 1; a >= 0; a--) {
@@ -46,6 +46,11 @@ function draw() {
 
 function test() {
 	ellipse(width/2, height/2, 50, 50);
+}
+
+function mousePressed() {
+	fill(0,255,255);
+	rect(60, 100, 55, 55);
 }
 
 // function mousePressed() {
