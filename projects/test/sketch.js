@@ -48,28 +48,28 @@ function draw() {
 // 	ellipse(width/2, height/2, 50, 50);
 // }
 
-// function mousePressed() {
-// 	background(random(255),random(255),random(255));
-// }
-
 function mousePressed() {
-	let center = [mouseX, mouseY];
-	let p1 = [0, 0];
-	let p2 = [width, 0];
-	let p3 = [width, height];
-	let p4 = [0, height];
-
-	hue = random(255);
-
-	if (sat < 255) {
-		sat = sat +2;
-	}
-
-	bright = random(255);
-
-	cut(10, p1, p2, p3, p4, center, currentCol );
-	currentCol  = color(hue, sat, bright, .8);
+	background(random(255),random(255),random(255));
 }
+
+// function mousePressed() {
+// 	let center = [mouseX, mouseY];
+// 	let p1 = [0, 0];
+// 	let p2 = [width, 0];
+// 	let p3 = [width, height];
+// 	let p4 = [0, height];
+
+// 	hue = random(255);
+
+// 	if (sat < 255) {
+// 		sat = sat +2;
+// 	}
+
+// 	bright = random(255);
+
+// 	cut(10, p1, p2, p3, p4, center, currentCol );
+// 	currentCol  = color(hue, sat, bright, .8);
+// }
 
 function cut(fois, a, b, c, d, center, coul) {
 	let t1 = random(0.1, 0.9);
