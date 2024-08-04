@@ -16,8 +16,9 @@ function setup() {
 	cnv = createCanvas(windowWidth,windowHeight);
 	colorMode(HSB);
 
-	currentCol  = color(random(255), sat, bright,.8);
+	currentCol  = color(255, sat, bright,.8);
 	stroke(255);
+	background(currentCol);
 }
 
 function draw() {
