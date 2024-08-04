@@ -7,6 +7,10 @@ body {
     font-weight: bold;
 }
 
+html, body {
+    touch-action: auto;
+}
+
 h1, p{
     padding: 0;
     margin: 0;
