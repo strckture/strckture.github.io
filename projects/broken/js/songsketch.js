@@ -2,8 +2,8 @@ let sections = [];
 let currentCol ;
 
 let hue = 0;
-let sat = 255;
-let bright = 255;
+let sat = 100;
+let bright = 100;
 
 var loading = true;
 let lastAmplitude = 0;
@@ -21,12 +21,12 @@ function soundLoaded(soundloaded){
 
 function setup() {
 	let cnv = createCanvas(windowWidth,windowHeight);
-	colorMode(HSB);
+	colorMode(HSB,100,100,100,1);
 
-	currentCol  = color(random(200), sat, 255,0.8);
+	currentCol  = color(random(100), sat, 100,0.8);
 	stroke(0);
 
-	sound = loadSound('assets/end.mp3', soundLoaded);
+	sound = loadSound('assets/broken.mp3', soundLoaded);
 
 	cnv.mouseClicked(togglePlay);
 	amplitude = new p5.Amplitude();
@@ -34,23 +34,32 @@ function setup() {
 
 function draw() {
 	background(currentCol);
+
 	let level = amplitude.getLevel();
 	let levelsize = map(level, 0, 1, 0, 100);
 
 	if (abs(levelsize - lastAmplitude) > threshold) {
 		// Update the last amplitude if the change is significant
 		lastAmplitude = levelsize;
-		console.log("New amplitude level:", levelsize); 
+		// console.log("New amplitude level:", levelsize); 
 		if (levelsize > 52){
 				yoink();
 		}
 	}
 
-	fill(255);
+	fill(100);
 	noStroke();
 	ellipse(windowWidth-40, 40, 10+levelsize, 10+levelsize);
 
-	stroke(0);
+	// if (bright >= 50) {
+	// 	stroke(0);
+	// } else {
+	// 	stroke(100);
+	// }
+
+	// stroke(100-bright);
+	stroke(100);
+
 	for (let a = sections.length - 1; a >= 0; a--) {
 		sections[a].dessine();
 	}
@@ -72,13 +81,9 @@ function yoink() {
 	let p3 = [width, height];
 	let p4 = [0, height];
 
-	hue = random(255);
-
-	// if (sat < 255) {
-	// 	sat = sat +2;
-	// }
-	sat = random(200,255);
-	bright = random(255);
+	hue = random(100);
+	sat = random(50,100);
+	bright = random(100);
 
 	cut(10, p1, p2, p3, p4, center, currentCol );
 	currentCol  = color(hue, sat, bright,0.8);
@@ -142,6 +147,7 @@ class Section {
 		this.pos[0] += this.vx;
 		this.pos[1] += this.vy;
 		fill(this.col);
+
 		beginShape();
 		let a = this.coords[0].affiche(this.an);
 		vertex(this.pos[0] + a[0], this.pos[1] + a[1]);

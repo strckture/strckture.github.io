@@ -1,9 +1,17 @@
+@font-face {
+    font-family: 'Ygro Sans';
+    src:
+        url('../../assets/YGROSANSBETA-BOOK.woff2') format('woff2'),
+        url('../../assets7YGROSANSBETA-BOOK.woff') format('woff');
+        font-weight: 400;
+}
+
 body {
     padding: 0;
     margin: 0;
     overflow: hidden;
     color: #000000;
-    font-family: monospace;
+    font-family: Ygro Sans, monospace;
     font-weight: bold;
 }
 

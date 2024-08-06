@@ -2,16 +2,16 @@
 @font-face {
     font-family: 'Ygro Sans';
     src:
-        url('assets/YGROSANSBETA-BOOK.woff2') format('woff2'),
-        url('assets7YGROSANSBETA-BOOK.woff') format('woff');
+        url('../../assets/YGROSANSBETA-BOOK.woff2') format('woff2'),
+        url('../../assets7YGROSANSBETA-BOOK.woff') format('woff');
         font-weight: 400;
 }
 
 @font-face {
     font-family: 'Anderson Grotesk';
     src:
-        url('assets/ANDERSONGROTESK-BLACK.woff2') format('woff2'),
-        url('assets/ANDERSONGROTESK-BLACK.woff') format('woff');
+        url('../../assets/ANDERSONGROTESK-BLACK.woff2') format('woff2'),
+        url('../../assets/ANDERSONGROTESK-BLACK.woff') format('woff');
 }
 /* -------------------------------------------------------------------------------- */
 

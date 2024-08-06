@@ -2,8 +2,8 @@ let sections = [];
 let currentCol ;
 
 let hue = 0;
-let sat = 255;
-let bright = 255;
+let sat = 100;
+let bright = 100;
 
 let cnv;
 
@@ -14,14 +14,22 @@ function windowResized(){
 
 function setup() {
 	cnv = createCanvas(windowWidth,windowHeight);
-	colorMode(HSB);
+	colorMode(HSB,100,100,100,1);
 
-	currentCol  = color(random(255), sat, bright,.8);
-	stroke(255);
+	currentCol  = color(random(100), sat, bright,.8);
+	stroke(100);
 }
 
 function draw() {
 	background(currentCol);
+
+	if (bright >= 50) {
+		stroke(0);
+	} else {
+		stroke(100);
+	}
+
+	// stroke(100-bright);
 
 	for (let a = sections.length - 1; a >= 0; a--) {
 		sections[a].dessine();
@@ -36,14 +44,6 @@ function draw() {
 	sections = newsections;
 }
 
-// function test() {
-// 	ellipse(width/2, height/2, 50, 50);
-// }
-
-// function mousePressed() {
-// 	background(random(255),random(255),random(255));
-// }
-
 function mousePressed() {
 	let center = [mouseX, mouseY];
 	let p1 = [0, 0];
@@ -51,13 +51,9 @@ function mousePressed() {
 	let p3 = [width, height];
 	let p4 = [0, height];
 
-	hue = random(255);
-
-	if (sat < 255) {
-		sat = sat +2;
-	}
-
-	bright = random(255);
+	hue = random(100);
+	sat = random(50,100);
+	bright = random(100);
 
 	cut(10, p1, p2, p3, p4, center, currentCol );
 	currentCol  = color(hue, sat, bright, .8);
