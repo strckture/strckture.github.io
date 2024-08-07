@@ -12,7 +12,7 @@ body {
     overflow: hidden;
     color: #000000;
     font-family: Ygro Sans, monospace;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 html, body {
