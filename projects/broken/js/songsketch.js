@@ -9,6 +9,9 @@ var loading = true;
 let lastAmplitude = 0;
 let threshold = 1;
 
+function preload() {
+	sound = loadSound('assets/broken.mp3', soundLoaded);
+}
 
 function windowResized(){
 	resizeCanvas(windowWidth, windowHeight);
@@ -23,16 +26,20 @@ function setup() {
 	let cnv = createCanvas(windowWidth,windowHeight);
 	colorMode(HSB,100,100,100,1);
 
-	currentCol  = color(random(100), sat, 100,0.8);
-	stroke(0);
-
-	sound = loadSound('assets/broken.mp3', soundLoaded);
+	currentCol  = color(random(50), sat, 100,0.8);
 
 	cnv.mouseClicked(togglePlay);
 	amplitude = new p5.Amplitude();
 }
 
 function draw() {
+	if (loading) {
+		background(0);
+		fill(255);
+		text('test...', width/2, height/2);
+		return;
+	}
+
 	background(currentCol);
 
 	let level = amplitude.getLevel();
@@ -46,19 +53,6 @@ function draw() {
 				yoink();
 		}
 	}
-
-	fill(100);
-	noStroke();
-	ellipse(windowWidth-40, 40, 10+levelsize, 10+levelsize);
-
-	// if (bright >= 50) {
-	// 	stroke(0);
-	// } else {
-	// 	stroke(100);
-	// }
-
-	// stroke(100-bright);
-	stroke(100);
 
 	for (let a = sections.length - 1; a >= 0; a--) {
 		sections[a].dessine();
@@ -147,6 +141,16 @@ class Section {
 		this.pos[0] += this.vx;
 		this.pos[1] += this.vy;
 		fill(this.col);
+
+		 // Calculate the brightness of the fill color
+		 let colBrightness = brightness(this.col);
+        
+		 // Set the stroke color based on the brightness
+		 if (colBrightness < 50) {
+			 stroke(100); // White stroke
+		 } else {
+			 stroke(0); // Black stroke
+		 }
 
 		beginShape();
 		let a = this.coords[0].affiche(this.an);

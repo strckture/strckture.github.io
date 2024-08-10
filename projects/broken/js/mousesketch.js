@@ -16,20 +16,13 @@ function setup() {
 	cnv = createCanvas(windowWidth,windowHeight);
 	colorMode(HSB,100,100,100,1);
 
-	currentCol  = color(random(100), sat, bright,.8);
-	stroke(100);
+	currentCol  = color(random(50), sat, bright,.8);
+	// stroke(100);
 }
 
 function draw() {
 	background(currentCol);
 
-	if (bright >= 50) {
-		stroke(0);
-	} else {
-		stroke(100);
-	}
-
-	// stroke(100-bright);
 
 	for (let a = sections.length - 1; a >= 0; a--) {
 		sections[a].dessine();
@@ -116,7 +109,19 @@ class Section {
 		this.vy += 0.01;
 		this.pos[0] += this.vx;
 		this.pos[1] += this.vy;
+
 		fill(this.col);
+
+		// Calculate the brightness of the fill color
+		let colBrightness = brightness(this.col);
+        
+		// Set the stroke color based on the brightness
+		if (colBrightness < 50) {
+			stroke(100); // White stroke
+		} else {
+			 stroke(0); // Black stroke
+		}
+
 		beginShape();
 		let a = this.coords[0].affiche(this.an);
 		vertex(this.pos[0] + a[0], this.pos[1] + a[1]);
