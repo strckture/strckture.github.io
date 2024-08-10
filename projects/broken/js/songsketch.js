@@ -33,12 +33,6 @@ function setup() {
 }
 
 function draw() {
-	if (loading) {
-		background(0);
-		fill(255);
-		text('test...', width/2, height/2);
-		return;
-	}
 
 	background(currentCol);
 
