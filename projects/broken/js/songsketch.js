@@ -29,6 +29,7 @@ function setup() {
 	currentCol  = color(random(50), sat, 100,0.8);
 
 	cnv.mouseClicked(togglePlay);
+
 	amplitude = new p5.Amplitude();
 }
 
@@ -181,8 +182,10 @@ class Coord {
 
 function togglePlay() {
     if (sound.isPlaying() ){
+		document.getElementById('loading-hint').style.display = 'block';
         sound.pause();
     } else {
+		document.getElementById('loading-hint').style.display = 'none';
         sound.loop();
         amplitude = new p5.Amplitude();
         amplitude.setInput(sound);

@@ -9,8 +9,48 @@
   <script src="./../../libraries/p5.min.js"></script>
   <script src="./../../libraries/p5.sound.min.js"></script>
   <script src="js/songsketch.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    #loading-hint {
+      width: 100%;
+      position: absolute;
+      /* display: flex;
+      justify-content: center; */
+      top: 50%;
+      left: 100%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      color: white;
+      text-align: left;
+      background-color: black;
+      padding: 10px;
+    }
+
+    #loading-hint h3 {
+      font-size: 25px;
+      font-weight: 400;
+      margin: 0;
+      padding: 0;
+    }
+
+    #loading-hint p {
+      font-size: 15px;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
 </head>
 
 <body>
+  <div id="loading-hint">
+    <h3>Tap to play.</h3>
+    <p>Disable Silent Mode</p>
+  </div>
 </body>
 </html>
