@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+    <title>Panasonic Experience</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+</head>
+<body>
+    <a class="cancel" href="index.html">
+        <img src="./assets/cancel_icn.svg" alt="">
+    </a>
+
+    <div class="video-container">
+        <h1 class="video-h caps">Video</h1>
+
+        <div class="gallery">
+            <p>Choose a Video</p>
+            <div class="video-wrapper">
+                <div class="video-overlay">
+                    <div class="play-pause-button" data-id="1" onclick="togglePlayPause(this)">
+                        <img src="./assets/play_icn.svg" alt="" class="play-icon">
+                        <img src="./assets/pause_icn.svg" alt="" class="pause-icon">
+                    </div>
+                </div>
+                <img src="./assets/tn1.png" alt="" class="tn">
+            </div>
+
+            <div class="video-wrapper">
+                <div class="video-overlay">
+                    <div class="play-pause-button" data-id="2" onclick="togglePlayPause(this)">
+                        <img src="./assets/play_icn.svg" alt="" class="play-icon">
+                        <img src="./assets/pause_icn.svg" alt="" class="pause-icon">
+                    </div>
+                </div>
+                <img src="./assets/tn2.png" alt="" class="tn">
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

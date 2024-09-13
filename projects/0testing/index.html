@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+    <title>Panasonic Experience</title>
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="content-container">
+        <a href="experience.html" class="link-container" id="experience-link">
+            <img src="./assets/x_tn.svg" alt="">
+            <p class="caps">Experience</p>
+        </a>
+        <a href="video.html" class="link-container" id="video-link">
+            <img src="./assets/v_tn.svg" alt="">
+            <p class="caps">Video</p>
+        </a>
+    </div>
+    <!-- TODO -->
+    <!-- 
+        POPUP when disconnected from MQTT
+    -->
+
+    <script>
+        // Step 1: Retrieve the client ID from the URL query parameters
+        const topUrl = new URL(window.location.href);
+        const topSearchParams = topUrl.searchParams;
+        const topClientID = topSearchParams.get('client_id');
+
+        console.log(`Top-Client ID: ${topClientID}`);
+
+        // Step 2: Modify the href attribute of the link tags
+        if (topClientID) {
+            const experienceLink = document.getElementById('experience-link');
+            const videoLink = document.getElementById('video-link');
+
+            experienceLink.href = `experience.html?client_id=${topClientID}`;
+            videoLink.href = `video.html?client_id=${topClientID}`;
+        }
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>
