@@ -75,7 +75,7 @@ button{
     position: absolute;
     left: 50%;
     bottom: 0;
-    margin: 8vh 0px;
+    margin: 200px 0px;
     transform: translate(-50%, 0);
 
     background-color: #EC3125;
