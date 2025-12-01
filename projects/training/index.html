@@ -6,52 +6,509 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trainingsplan</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 
 <body>
   <h1>Trainingsplan</h1>
-  
-  <div class="exercise-list">
-    <div class="exercise-item">
-      <input type="checkbox" id="exercise1">
-      <label for="exercise1">Push-ups (3 sets of 15)</label>
-    </div>
-    
-    <div class="exercise-item">
-      <input type="checkbox" id="exercise2">
-      <label for="exercise2">Squats (3 sets of 20)</label>
-    </div>
-    
-    <div class="exercise-item">
-      <input type="checkbox" id="exercise3">
-      <label for="exercise3">Plank (3 sets of 45 seconds)</label>
-    </div>
-    
-    <div class="exercise-item">
-      <input type="checkbox" id="exercise4">
-      <label for="exercise4">Lunges (3 sets of 12 per leg)</label>
-    </div>
-    
-    <div class="exercise-item">
-      <input type="checkbox" id="exercise5">
-      <label for="exercise5">Burpees (3 sets of 10)</label>
-    </div>
-    
-    <div class="exercise-item">
-      <input type="checkbox" id="exercise6">
-      <label for="exercise6">Mountain Climbers (3 sets of 20)</label>
-    </div>
-    
-    <div class="exercise-item">
-      <input type="checkbox" id="exercise7">
-      <label for="exercise7">Jumping Jacks (3 sets of 30)</label>
-    </div>
-    
-    <div class="exercise-item">
-      <input type="checkbox" id="exercise8">
-      <label for="exercise8">Sit-ups (3 sets of 20)</label>
-    </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <div id="completion-screen">
+    <h2>🎉 Workout Complete! 🎉</h2>
+    <p>Great job! You've finished your training!</p>
+    <button id="done-button">Done</button>
   </div>
+
+  <main>
+    <!-- Warm-up -->
+    <div class="training-section">
+      <h2 class="section-header">
+        <input type="checkbox" class="section-checkbox">
+        <span class="header-text">Warm-up (10 min)</span>
+      </h2>
+      <div class="section-content">
+        <div class="exercise-item">
+          <div class="exercise-info">
+            <input type="checkbox">
+            <label for="">Cardio</label>
+          </div>
+          <span>10 min</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobility -->
+    <div class="training-section">
+      <h2 class="section-header">
+        <input type="checkbox" class="section-checkbox">
+        <span class="header-text">Mobility (5 min)</span>
+      </h2>
+      <div class="section-content">
+        <div class="exercise-item">
+          <div class="exercise-info">
+            <input type="checkbox">
+            <label for="">Fußgelenke kreisen</label>
+          </div>
+          <span>30 sec</span>
+        </div>
+
+        <div class="exercise-item">
+          <div class="exercise-info">
+            <input type="checkbox">
+            <label for="">Knie kreisen</label>
+          </div>
+          <span>30 sec</span>
+        </div>
+
+        <div class="exercise-item">
+          <div class="exercise-info">
+            <input type="checkbox">
+            <label for="">Squat-Hocke</label>
+          </div>
+          <span>30 sec</span>
+        </div>
+
+        <div class="exercise-item">
+          <div class="exercise-info">
+            <input type="checkbox">
+            <label for="">Ausfallschritt</label>
+          </div>
+          <span>30 sec</span>
+        </div>
+
+        <div class="exercise-item">
+          <div class="exercise-info">
+            <input type="checkbox">
+            <label for="">Hüfte isolieren</label>
+          </div>
+          <span>30 sec</span>
+        </div>
+
+        <div class="exercise-item">
+          <div class="exercise-info">
+            <input type="checkbox">
+            <label for="">Oberkörper kreisen</label>
+          </div>
+          <span>30 sec</span>
+        </div>
+
+        <div class="exercise-item">
+          <div class="exercise-info">
+            <input type="checkbox">
+            <label for="">Schultergelenke kreisen</label>
+          </div>
+          <span>30 sec</span>
+        </div>
+
+        <div class="exercise-item">
+          <div class="exercise-info">
+            <input type="checkbox">
+            <label for="">Elllenbogengelenke kreisen</label>
+          </div>
+          <span>30 sec</span>
+        </div>
+
+        <div class="exercise-item">
+          <div class="exercise-info">
+            <input type="checkbox">
+            <label for="">Handgelenke kreisen</label>
+          </div>
+          <span>30 sec</span>
+        </div>
+
+        <div class="exercise-item">
+          <div class="exercise-info">
+            <input type="checkbox">
+            <label for="">Kopf kreisen</label>
+          </div>
+          <span>30 sec</span>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Workout -->
+    <div class="training-section">
+      <h2 class="section-header">
+        <input type="checkbox" class="section-checkbox">
+        <span class="header-text">Workout (50 min)</span>
+      </h2>
+      <div class="section-content">
+        <div class="workout">
+
+          <div class="muscle-group">
+            <h3>Brust</h3>
+            <div class="exercise-item">
+              <div class="exercise-info">
+                <input type="checkbox">
+                <label for="">Bankdrücken</label>
+              </div>
+              <span>3x12-8</span>
+            </div>
+          </div>
+
+          <div class="muscle-group">
+            <h3>Rücken</h3>
+            <div class="exercise-item">
+              <div class="exercise-info">
+                <input type="checkbox">
+                <label for="">Latzug</label>
+              </div>
+              <span>3x12-8</span>
+            </div>
+
+            <div class="exercise-item">
+              <div class="exercise-info">
+                <input type="checkbox">
+                <label for="">Rudern</label>
+              </div>
+              <span>3x12-8</span>
+            </div>
+          </div>
+
+          <div class="muscle-group">
+            <h3>Beine</h3>
+            <div class="exercise-item">
+              <div class="exercise-info">
+                <input type="checkbox">
+                <label for="">Squats</label>
+              </div>
+              <span>3x12-8</span>
+            </div>
+
+            <div class="exercise-item">
+              <div class="exercise-info">
+                <input type="checkbox">
+                <label for="">Hip Thrusts</label>
+              </div>
+              <span>3x12-8</span>
+            </div>
+
+            <div class="exercise-item">
+              <div class="exercise-info">
+                <input type="checkbox">
+                <label for="">Ausfallschritte</label>
+              </div>
+              <span>3x12-8</span>
+            </div>
+          </div>
+
+          <div>
+            <h3>Core</h3>
+            <div class="exercise-item">
+              <div class="exercise-info">
+                <input type="checkbox">
+                <label for="">Leg Raises</label>
+              </div>
+              <span>3x12-8</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Confetti animation
+    const canvas = document.getElementById('confetti-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    let confettiParticles = [];
+    let isConfettiActive = false;
+    let allCompleted = false;
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    class ConfettiParticle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = -10;
+        this.size = Math.random() * 8 + 4;
+        this.speedY = Math.random() * 3 + 2;
+        this.speedX = Math.random() * 2 - 1;
+        this.rotation = Math.random() * 360;
+        this.rotationSpeed = Math.random() * 10 - 5;
+        this.color = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#F7DC6F', '#BB8FCE', '#85C1E2'][Math.floor(Math.random() * 8)];
+      }
+
+      update() {
+        this.y += this.speedY;
+        this.x += this.speedX;
+        this.rotation += this.rotationSpeed;
+        this.speedY += 0.1; // gravity
+      }
+
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation * Math.PI / 180);
+        ctx.fillStyle = this.color;
+        ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+        ctx.restore();
+      }
+    }
+
+    function createConfetti() {
+      for (let i = 0; i < 150; i++) {
+        setTimeout(() => {
+          confettiParticles.push(new ConfettiParticle());
+        }, i * 10);
+      }
+    }
+
+    function animateConfetti() {
+      if (!isConfettiActive && confettiParticles.length === 0) return;
+      
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      confettiParticles.forEach((particle, index) => {
+        particle.update();
+        particle.draw();
+        
+        // Remove particles that are off screen
+        if (particle.y > canvas.height) {
+          confettiParticles.splice(index, 1);
+        }
+      });
+      
+      if (confettiParticles.length > 0 || isConfettiActive) {
+        requestAnimationFrame(animateConfetti);
+      }
+    }
+
+    function triggerConfetti() {
+      if (!isConfettiActive) {
+        isConfettiActive = true;
+        createConfetti();
+        animateConfetti();
+        
+        // Reset after animation
+        setTimeout(() => {
+          isConfettiActive = false;
+        }, 3000);
+      }
+    }
+
+    function checkAllCompleted() {
+      const allCheckboxes = document.querySelectorAll('.exercise-item input[type="checkbox"]');
+      const checkedBoxes = document.querySelectorAll('.exercise-item input[type="checkbox"]:checked');
+      
+      if (allCheckboxes.length > 0 && allCheckboxes.length === checkedBoxes.length) {
+        if (!allCompleted) {
+          allCompleted = true;
+          triggerConfetti();
+          
+          // Show completion screen
+          const completionScreen = document.getElementById('completion-screen');
+          setTimeout(() => {
+            completionScreen.classList.add('show');
+          }, 500);
+          
+          // Animate the main title
+          gsap.to('h1', {
+            scale: 1.2,
+            color: '#4CAF50',
+            duration: 0.5,
+            yoyo: true,
+            repeat: 1,
+            ease: 'power2.inOut'
+          });
+        }
+      } else {
+        allCompleted = false;
+      }
+    }
+
+    // Function to check if all exercises in a muscle group are completed
+    function updateMuscleGroupCompletion(muscleGroup) {
+      const allCheckboxes = muscleGroup.querySelectorAll('.exercise-item input[type="checkbox"]');
+      const checkedBoxes = muscleGroup.querySelectorAll('.exercise-item input[type="checkbox"]:checked');
+      const header = muscleGroup.querySelector('h3');
+      
+      // Remove existing checkmark if present
+      const existingCheckmark = header ? header.querySelector('.checkmark') : null;
+      if (existingCheckmark) {
+        existingCheckmark.remove();
+      }
+      
+      if (header && allCheckboxes.length > 0 && allCheckboxes.length === checkedBoxes.length) {
+        header.classList.add('completed');
+        const checkmark = document.createElement('span');
+        checkmark.className = 'checkmark';
+        checkmark.textContent = ' ✓';
+        header.appendChild(checkmark);
+      } else if (header) {
+        header.classList.remove('completed');
+      }
+    }
+
+    // Function to check if all exercises in a section are completed
+    function updateSectionCompletion(section) {
+      const allCheckboxes = section.querySelectorAll('.exercise-item input[type="checkbox"]');
+      const checkedBoxes = section.querySelectorAll('.exercise-item input[type="checkbox"]:checked');
+      const header = section.querySelector('.section-header');
+      const sectionCheckbox = header.querySelector('.section-checkbox');
+      
+      // Remove existing checkmark if present
+      const existingCheckmark = header.querySelector('.checkmark');
+      if (existingCheckmark) {
+        existingCheckmark.remove();
+      }
+      
+      // Update section checkbox state
+      if (allCheckboxes.length > 0) {
+        sectionCheckbox.checked = allCheckboxes.length === checkedBoxes.length;
+      }
+      
+      // Add checkmark if all exercises are completed
+      if (allCheckboxes.length > 0 && allCheckboxes.length === checkedBoxes.length) {
+        const checkmark = document.createElement('span');
+        checkmark.className = 'checkmark';
+        checkmark.textContent = ' ✓';
+        header.appendChild(checkmark);
+        header.classList.add('completed');
+      } else {
+        header.classList.remove('completed');
+      }
+    }
+
+    // Make exercise items clickable
+    document.querySelectorAll('.exercise-item').forEach(item => {
+      item.style.cursor = 'pointer';
+      item.addEventListener('click', function(e) {
+        const checkbox = this.querySelector('input[type="checkbox"]');
+        if (e.target !== checkbox) {
+          checkbox.checked = !checkbox.checked;
+        }
+        // Toggle completed state
+        this.classList.toggle('completed', checkbox.checked);
+        
+        // Check if muscle group is fully completed
+        const muscleGroup = this.closest('.muscle-group');
+        if (muscleGroup) {
+          updateMuscleGroupCompletion(muscleGroup);
+        }
+        
+        // Check if section is fully completed
+        const section = this.closest('.training-section');
+        updateSectionCompletion(section);
+        
+        // Check if everything is completed
+        checkAllCompleted();
+      });
+    });
+
+    // Section checkbox functionality
+    document.querySelectorAll('.section-checkbox').forEach(sectionCheckbox => {
+      sectionCheckbox.addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevent collapse toggle
+        
+        const section = this.closest('.training-section');
+        const exerciseCheckboxes = section.querySelectorAll('.exercise-item input[type="checkbox"]');
+        const isChecked = this.checked;
+        
+        // Check/uncheck all exercise items in this section
+        exerciseCheckboxes.forEach(checkbox => {
+          checkbox.checked = isChecked;
+          const item = checkbox.closest('.exercise-item');
+          item.classList.toggle('completed', isChecked);
+        });
+        
+        // Update muscle groups
+        section.querySelectorAll('.muscle-group').forEach(muscleGroup => {
+          updateMuscleGroupCompletion(muscleGroup);
+        });
+        
+        // Update section completion
+        updateSectionCompletion(section);
+        
+        // Check if everything is completed
+        checkAllCompleted();
+      });
+    });
+
+    // Make sections collapsible with accordion animation
+    document.querySelectorAll('.section-header').forEach(header => {
+      header.style.cursor = 'pointer';
+      header.addEventListener('click', function(e) {
+        // Don't collapse if clicking on checkbox
+        if (e.target.classList.contains('section-checkbox')) {
+          return;
+        }
+        
+        const section = this.parentElement;
+        const content = section.querySelector('.section-content');
+        
+        // Set the max-height for smooth animation
+        if (!section.classList.contains('collapsed')) {
+          content.style.maxHeight = content.scrollHeight + 'px';
+          // Force reflow
+          content.offsetHeight;
+        }
+        
+        section.classList.toggle('collapsed');
+        
+        // Update max-height after collapse
+        if (!section.classList.contains('collapsed')) {
+          requestAnimationFrame(() => {
+            content.style.maxHeight = content.scrollHeight + 'px';
+          });
+        }
+      });
+    });
+    
+    // Initialize max-heights for all open sections
+    document.querySelectorAll('.section-content').forEach(content => {
+      if (!content.closest('.training-section').classList.contains('collapsed')) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+      }
+    });
+
+    // Done button functionality
+    document.getElementById('done-button').addEventListener('click', function() {
+      const completionScreen = document.getElementById('completion-screen');
+      
+      // Hide completion screen
+      completionScreen.classList.remove('show');
+      
+      // Uncheck all checkboxes and remove completed states
+      setTimeout(() => {
+        document.querySelectorAll('.exercise-item input[type="checkbox"]').forEach(checkbox => {
+          checkbox.checked = false;
+        });
+        
+        document.querySelectorAll('.exercise-item').forEach(item => {
+          item.classList.remove('completed');
+        });
+        
+        // Update all muscle groups
+        document.querySelectorAll('.muscle-group').forEach(muscleGroup => {
+          updateMuscleGroupCompletion(muscleGroup);
+        });
+        
+        // Update all sections
+        document.querySelectorAll('.training-section').forEach(section => {
+          updateSectionCompletion(section);
+        });
+        
+        // Reset the title color
+        gsap.to('h1', {
+          color: '#000000',
+          duration: 0.3
+        });
+        
+        // Reset completion flag
+        allCompleted = false;
+      }, 400);
+    });
+  </script>
+
 </body>
 
 </html>
